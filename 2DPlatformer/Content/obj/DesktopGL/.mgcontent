@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<SourceFileCollection xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Profile>Reach</Profile>
+  <Platform>DesktopGL</Platform>
+  <Config />
+  <SourceFiles>
+    <File>C:/Users/Cobeaquen/source/repos/2DPlatformer/2DPlatformer/Content/player.png</File>
+    <File>C:/Users/Cobeaquen/source/repos/2DPlatformer/2DPlatformer/Content/earth.ico</File>
+    <File>C:/Users/Cobeaquen/source/repos/2DPlatformer/2DPlatformer/Content/trumperino.png</File>
+    <File>C:/Users/Cobeaquen/source/repos/2DPlatformer/2DPlatformer/Content/char1.png</File>
+    <File>C:/Users/Cobeaquen/source/repos/2DPlatformer/2DPlatformer/Content/trumperin0.png</File>
+    <File>C:/Users/Cobeaquen/source/repos/2DPlatformer/2DPlatformer/Content/stone.png</File>
+    <File>C:/Users/Cobeaquen/source/repos/2DPlatformer/2DPlatformer/Content/diamond.png</File>
+    <File>C:/Users/Cobeaquen/source/repos/2DPlatformer/2DPlatformer/Content/dirt.png</File>
+    <File>C:/Users/Cobeaquen/source/repos/2DPlatformer/2DPlatformer/Content/gold.png</File>
+    <File>C:/Users/Cobeaquen/source/repos/2DPlatformer/2DPlatformer/Content/iron.png</File>
+  </SourceFiles>
+</SourceFileCollection>
