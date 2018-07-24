@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using _2DPlatformer.Blocks;
-using _2DPlatformer.Grid;
+using ProjectPlatformer.Blocks;
+using ProjectPlatformer.Grid;
+using ProjectPlatformer.Character;
 
-namespace _2DPlatformer.Networking
+namespace ProjectPlatformer.Networking
 {
     [Serializable]
     public class PlatformerNetworking
@@ -52,6 +53,7 @@ namespace _2DPlatformer.Networking
             }
             return send;
         }
+
         public void GetPlatformerNetworkVariables(PlatformerNetworking latestSave)
         {
             if (player.position.X == 0)

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <SourceFile>C:/Users/Cobeaquen/source/repos/2DPlatformer/2DPlatformer/Content/iron.png</SourceFile>
+  <SourceFile>D:/ProjectPlatform/2DPlatformer/Content/iron.png</SourceFile>
   <SourceTime>2018-06-29T00:06:35.196624+02:00</SourceTime>
-  <DestFile>C:/Users/Cobeaquen/source/repos/2DPlatformer/2DPlatformer/Content/bin/DesktopGL/iron.xnb</DestFile>
-  <DestTime>2018-06-29T00:09:02.0383128+02:00</DestTime>
+  <DestFile>D:/ProjectPlatform/2DPlatformer/Content/bin/DesktopGL/iron.xnb</DestFile>
+  <DestTime>2018-07-24T03:23:11.4277297+02:00</DestTime>
   <Importer>TextureImporter</Importer>
   <ImporterTime>2017-03-01T16:05:36+01:00</ImporterTime>
   <Processor>TextureProcessor</Processor>

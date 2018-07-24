@@ -1,7 +1,7 @@
 ﻿using System;
 using Microsoft.Xna.Framework;
 
-namespace _2DPlatformer
+namespace ProjectPlatformer
 {
     [Serializable]
     public class Position

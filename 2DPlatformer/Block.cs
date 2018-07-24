@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
-using _2DPlatformer.Grid;
+using ProjectPlatformer.Grid;
 
-namespace _2DPlatformer.Blocks
+namespace ProjectPlatformer.Blocks
 {
     [Serializable]
     public class Block

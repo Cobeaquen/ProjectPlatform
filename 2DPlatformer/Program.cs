@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace _2DPlatformer
+namespace ProjectPlatformer
 {
     /// <summary>
     /// The main class.

@@ -5,8 +5,8 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("2DPlatformer")]
-[assembly: AssemblyProduct("2DPlatformer")]
+[assembly: AssemblyTitle("Project Platformer")]
+[assembly: AssemblyProduct("Project Platformer")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyCompany("")]

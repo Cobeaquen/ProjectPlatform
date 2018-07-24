@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using _2DPlatformer.Blocks;
+using ProjectPlatformer.Blocks;
 using Microsoft.Xna.Framework;
 
-namespace _2DPlatformer.Grid
+namespace ProjectPlatformer.Grid
 {
     [Serializable]
     public class Cell

@@ -114,11 +114,17 @@ namespace Server
                                         byte[] bytes = new byte[read[i].Length - 1];
                                         Array.Copy(read[i], 1, bytes, 0, bytes.Length);
 
+                                        if (!(bytes.Any(b => b != 0)))
+                                        {
+                                            RunServer();
+                                        }
+
                                         switch (read[i][0])
                                         {
                                             case 0: // this is the data of the player
                                                 if (latestNetVars == null)
                                                     latestNetVars = new PlatformerNetworking();
+
 
                                                 PlatformerNetworking netVars = Serialization.DeSerialize<PlatformerNetworking>(bytes);
                                                 //netVars.GetPlatformerNetworkVariables(latestNetVars);
@@ -145,7 +151,7 @@ namespace Server
                                     }
                                 }
                             }
-                            connections[i].stream.Flush(); // probably wanna remove this later yoo
+                            //connections[i].stream.Flush(); // probably wanna remove this later yoo
                         }
                     }
                     else
