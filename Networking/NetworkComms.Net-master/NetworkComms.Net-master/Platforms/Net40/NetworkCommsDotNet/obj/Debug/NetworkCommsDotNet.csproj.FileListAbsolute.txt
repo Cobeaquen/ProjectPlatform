@@ -1,0 +1,9 @@
+D:\ProjectPlatform\Networking\NetworkComms.Net-master\NetworkComms.Net-master\Platforms\Net40\NetworkCommsDotNet\bin\Debug\NetworkCommsDotNet.dll
+D:\ProjectPlatform\Networking\NetworkComms.Net-master\NetworkComms.Net-master\Platforms\Net40\NetworkCommsDotNet\bin\Debug\NetworkCommsDotNet.pdb
+D:\ProjectPlatform\Networking\NetworkComms.Net-master\NetworkComms.Net-master\Platforms\Net40\NetworkCommsDotNet\bin\Debug\InTheHand.Net.Personal.dll
+D:\ProjectPlatform\Networking\NetworkComms.Net-master\NetworkComms.Net-master\Platforms\Net40\NetworkCommsDotNet\bin\Debug\InTheHand.Net.Personal.xml
+D:\ProjectPlatform\Networking\NetworkComms.Net-master\NetworkComms.Net-master\Platforms\Net40\NetworkCommsDotNet\obj\Debug\NetworkCommsDotNet.csprojAssemblyReference.cache
+D:\ProjectPlatform\Networking\NetworkComms.Net-master\NetworkComms.Net-master\Platforms\Net40\NetworkCommsDotNet\obj\Debug\NetworkCommsDotNet.csproj.CoreCompileInputs.cache
+D:\ProjectPlatform\Networking\NetworkComms.Net-master\NetworkComms.Net-master\Platforms\Net40\NetworkCommsDotNet\obj\Debug\NetworkCommsDotNet.csproj.CopyComplete
+D:\ProjectPlatform\Networking\NetworkComms.Net-master\NetworkComms.Net-master\Platforms\Net40\NetworkCommsDotNet\obj\Debug\NetworkCommsDotNet.dll
+D:\ProjectPlatform\Networking\NetworkComms.Net-master\NetworkComms.Net-master\Platforms\Net40\NetworkCommsDotNet\obj\Debug\NetworkCommsDotNet.pdb

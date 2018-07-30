@@ -1,13 +1,20 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using Microsoft.Xna.Framework;
+using ProtoBuf;
 
 namespace ProjectPlatformer
 {
-    [Serializable]
+    [ProtoContract]
     public class Position
     {
-        public float X;
-        public float Y;
+        [ProtoMember(1)]
+        public float X;// { get; set; }
+        [ProtoMember(2)]
+        public float Y;// { get; set; }
 
         public Position(float x, float y)
         {

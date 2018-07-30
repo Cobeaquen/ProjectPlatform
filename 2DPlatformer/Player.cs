@@ -9,60 +9,61 @@ using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Input;
 using ProjectPlatformer.Grid;
 using ProjectPlatformer.Blocks;
+using ProtoBuf;
 
 namespace ProjectPlatformer.Character
 {
-    [Serializable]
     public class Player
     {
-        [NonSerialized]public Camera camera;
+        public Camera camera;
 
         public Position position;
-        [NonSerialized]public Cell playerCell;
-        [NonSerialized]public Vector2 Origin;
-        [NonSerialized]public Texture2D Sprite;
+        public Cell playerCell;
+        public Vector2 Origin;
+        public Texture2D Sprite;
         public int Width, Height;
-        [NonSerialized]public float HalfWidth, HalfHeight;
+        public float HalfWidth, HalfHeight;
         public float Speed;
 
-        [NonSerialized] bool isfalling;
-        [NonSerialized] Vector2 velocity;
+        bool isfalling;
+        Vector2 velocity;
 
-        [NonSerialized] private MouseState oldstate;
+        private MouseState oldstate;
 
         #region Grid
-        [NonSerialized] Cell prevPlayerCell;
-        [NonSerialized] Cell[] surCells;
-        [NonSerialized] Cell[] collCell;
+        Cell prevPlayerCell;
+        Cell[] surCells;
+        Cell[] collCell;
         #endregion
 
         CollisionType[] colType;
 
         //player collision sections
-        [NonSerialized] int feetHeight = Cell.cellHeight * 2;
-        [NonSerialized] int rightHeight = Cell.cellHeight;
-        [NonSerialized] int rightWidth = Cell.cellWidth;
-        [NonSerialized] int leftHeight = Cell.cellHeight;
-        [NonSerialized] int leftwidth = Cell.cellHeight;
+        int feetHeight = Cell.cellHeight * 2;
+        int rightHeight = Cell.cellHeight;
+        int rightWidth = Cell.cellWidth;
+        int leftHeight = Cell.cellHeight;
+        int leftwidth = Cell.cellHeight;
 
-        [NonSerialized] bool stopped = false;
-        [NonSerialized] bool isMoving = false;
-        [NonSerialized] bool movingRight = false, movingLeft = false;
+        bool stopped = false;
+        bool isMoving = false;
+        bool movingRight = false, movingLeft = false;
 
-        public Player()
+        public Player(bool localPlayer)
         {
-            camera = new Camera();
-            isfalling = true;
-            position = new Position(PlatformerGame.screenCenter + new Vector2(1000, 1000));
-            Width = 3;
-            HalfWidth = Width / 2f;
-            Height = 5;
-            HalfWidth = Height / 2f;
-            Origin = new Vector2((Width * Cell.cellWidth) / 2, (Height * Cell.cellHeight) / 2);
-            Speed = 10f;
+            if (localPlayer)
+            {
+                camera = new Camera();
+                isfalling = true;
+                position = new Position(PlatformerGame.screenCenter + new Vector2(1000, 1000));
+                Width = 3;
+                HalfWidth = Width / 2f;
+                Height = 5;
+                HalfWidth = Height / 2f;
+                Origin = new Vector2((Width * Cell.cellWidth) / 2, (Height * Cell.cellHeight) / 2);
+                Speed = 10f;
+            }
         }
-
-
 
         public void LoadContent(ContentManager content)
         {
@@ -110,7 +111,7 @@ namespace ProjectPlatformer.Character
             {
                 if (Collision.Colliding(new Vector2(position.X, position.Y + (Height / 2f) * Cell.cellHeight - (feetHeight / 2f)), Width * Cell.cellWidth, feetHeight, surCells, ref colType, ref collCell) > 0)
                 {
-                    Console.WriteLine("FEEEEET");
+                    //Console.WriteLine("FEEEEET");
                     isfalling = false;
 
                     int heighestPos = int.MinValue;
@@ -126,7 +127,7 @@ namespace ProjectPlatformer.Character
                     Vector2 newPosition = new Vector2(position.X, heighestPos - (Height / 2f) * Cell.cellHeight - Cell.cellHeight / 2);
                     position.Y = newPosition.Y;
                 }
-                Console.WriteLine("contacts: {0}", contacts);
+                //Console.WriteLine("contacts: {0}", contacts);
                 /*for (int i = 0; i < contacts; i++)
                 {
                     switch (colType[i])
@@ -220,7 +221,7 @@ namespace ProjectPlatformer.Character
 
             if (PlatformerGame.multiplayer)
             {
-                PlatformerGame.instance.net.PlaceBlock(blockCell);
+                Block.PlaceBlock(blockCell, new Block(PlatformerGame.instance.Pixel(Cell.cellWidth, Cell.cellHeight), Cell.cellWidth, Cell.cellHeight));
             }
         }
     }

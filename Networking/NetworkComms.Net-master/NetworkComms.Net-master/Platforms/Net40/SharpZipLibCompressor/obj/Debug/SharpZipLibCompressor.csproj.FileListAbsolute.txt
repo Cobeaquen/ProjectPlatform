@@ -1,0 +1,12 @@
+D:\ProjectPlatform\Networking\NetworkComms.Net-master\NetworkComms.Net-master\Platforms\Net40\SharpZipLibCompressor\bin\Debug\SharpZipLibCompressor.dll
+D:\ProjectPlatform\Networking\NetworkComms.Net-master\NetworkComms.Net-master\Platforms\Net40\SharpZipLibCompressor\bin\Debug\SharpZipLibCompressor.pdb
+D:\ProjectPlatform\Networking\NetworkComms.Net-master\NetworkComms.Net-master\Platforms\Net40\SharpZipLibCompressor\bin\Debug\ICSharpCode.SharpZipLib.dll
+D:\ProjectPlatform\Networking\NetworkComms.Net-master\NetworkComms.Net-master\Platforms\Net40\SharpZipLibCompressor\bin\Debug\NetworkCommsDotNet.dll
+D:\ProjectPlatform\Networking\NetworkComms.Net-master\NetworkComms.Net-master\Platforms\Net40\SharpZipLibCompressor\bin\Debug\InTheHand.Net.Personal.dll
+D:\ProjectPlatform\Networking\NetworkComms.Net-master\NetworkComms.Net-master\Platforms\Net40\SharpZipLibCompressor\bin\Debug\NetworkCommsDotNet.pdb
+D:\ProjectPlatform\Networking\NetworkComms.Net-master\NetworkComms.Net-master\Platforms\Net40\SharpZipLibCompressor\bin\Debug\InTheHand.Net.Personal.xml
+D:\ProjectPlatform\Networking\NetworkComms.Net-master\NetworkComms.Net-master\Platforms\Net40\SharpZipLibCompressor\obj\Debug\SharpZipLibCompressor.csprojAssemblyReference.cache
+D:\ProjectPlatform\Networking\NetworkComms.Net-master\NetworkComms.Net-master\Platforms\Net40\SharpZipLibCompressor\obj\Debug\SharpZipLibCompressor.csproj.CoreCompileInputs.cache
+D:\ProjectPlatform\Networking\NetworkComms.Net-master\NetworkComms.Net-master\Platforms\Net40\SharpZipLibCompressor\obj\Debug\SharpZipLibCompressor.csproj.CopyComplete
+D:\ProjectPlatform\Networking\NetworkComms.Net-master\NetworkComms.Net-master\Platforms\Net40\SharpZipLibCompressor\obj\Debug\SharpZipLibCompressor.dll
+D:\ProjectPlatform\Networking\NetworkComms.Net-master\NetworkComms.Net-master\Platforms\Net40\SharpZipLibCompressor\obj\Debug\SharpZipLibCompressor.pdb

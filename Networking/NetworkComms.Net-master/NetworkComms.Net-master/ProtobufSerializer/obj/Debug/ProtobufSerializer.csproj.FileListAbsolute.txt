@@ -1,0 +1,2 @@
+D:\ProjectPlatform\Networking\NetworkComms.Net-master\NetworkComms.Net-master\ProtobufSerializer\obj\Debug\ProtobufSerializer.csprojAssemblyReference.cache
+D:\ProjectPlatform\Networking\NetworkComms.Net-master\NetworkComms.Net-master\ProtobufSerializer\obj\Debug\ProtobufSerializer.csproj.CoreCompileInputs.cache

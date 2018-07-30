@@ -1,0 +1,6 @@
+D:\ProjectPlatform\Networking\NetworkComms.Net-master\NetworkComms.Net-master\NetworkCommsDotNet\bin\Debug\NetworkCommsDotNet.XML
+D:\ProjectPlatform\Networking\NetworkComms.Net-master\NetworkComms.Net-master\NetworkCommsDotNet\bin\Debug\NetworkCommsDotNet.dll
+D:\ProjectPlatform\Networking\NetworkComms.Net-master\NetworkComms.Net-master\NetworkCommsDotNet\bin\Debug\NetworkCommsDotNet.pdb
+D:\ProjectPlatform\Networking\NetworkComms.Net-master\NetworkComms.Net-master\NetworkCommsDotNet\obj\Debug\NetworkCommsDotNet.csproj.CoreCompileInputs.cache
+D:\ProjectPlatform\Networking\NetworkComms.Net-master\NetworkComms.Net-master\NetworkCommsDotNet\obj\Debug\NetworkCommsDotNet.dll
+D:\ProjectPlatform\Networking\NetworkComms.Net-master\NetworkComms.Net-master\NetworkCommsDotNet\obj\Debug\NetworkCommsDotNet.pdb

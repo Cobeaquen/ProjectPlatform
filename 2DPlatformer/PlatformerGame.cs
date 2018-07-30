@@ -13,6 +13,7 @@ using System.IO;
 using System.Threading.Tasks;
 using ProjectPlatformer.Networking;
 using ProjectPlatformer.Character;
+using ProjectPlatformer.Time;
 
 namespace ProjectPlatformer
 {
@@ -23,8 +24,8 @@ namespace ProjectPlatformer
         #endregion
 
         #region networking
-        public static bool multiplayer = true;
-        public NetworkManager net;
+        public static bool multiplayer = false;
+        public NetworkClient net;
         #endregion
 
         GraphicsDeviceManager graphics;
@@ -41,8 +42,8 @@ namespace ProjectPlatformer
             graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
             SetApplicationSettings();
-            net = new NetworkManager();
-            player = new Player();
+            net = new NetworkClient();
+            player = new Player(true);
         }
 
         protected override void Initialize()
@@ -108,7 +109,7 @@ namespace ProjectPlatformer
 
             spriteBatch.Begin(SpriteSortMode.Deferred, null, null, null, null, null, player.camera.view);
 
-            spriteBatch.Draw(Pixel(player.Width * Cell.cellWidth, player.Height * Cell.cellHeight), player.position.ToVector2(), null, Color.Green, 0f, player.Origin, Vector2.One, SpriteEffects.None, 0f);
+            spriteBatch.Draw(player.Sprite, player.position.ToVector2(), null, Color.White, 0f, player.Origin, Vector2.One, SpriteEffects.None, 0f); // optimize
 
             /*for (int i = 0; i < surCells.Length; i++)
             {
@@ -126,7 +127,7 @@ namespace ProjectPlatformer
                 }
             }
 
-            spriteBatch.Draw(Pixel(10, 10), new Vector2(player.position.X, player.position.Y + (player.Height / 2f) * Cell.cellHeight - Cell.cellHeight), null, Color.Blue, 0f, new Vector2(5, 5), 1f, SpriteEffects.None, 0f);
+            //spriteBatch.Draw(player.Sprite, new Vector2(player.position.X, player.position.Y + (player.Height / 2f) * Cell.cellHeight - Cell.cellHeight), null, Color.Blue, 0f, new Vector2(5, 5), 1f, SpriteEffects.None, 0f); //optimize
 
             if (multiplayer) // multiplayer
                 DrawMultiplayer();
@@ -140,11 +141,18 @@ namespace ProjectPlatformer
 
         private void DrawMultiplayer()
         {
-            if (net.connectedClient.Count > 0)
+            if (net.connectedClients.Count > 0)
             {
-                foreach (PlatformerNetworking p in net.connectedClient)
+                try
                 {
-                    spriteBatch.Draw(Pixel(player.Width * Cell.cellWidth, player.Height * Cell.cellHeight), p.player.position.ToVector2(), null, Color.Purple, 0f, player.Origin, Vector2.One, SpriteEffects.None, 0f);
+                    foreach (NetworkPlayer p in net.connectedClients)
+                    {
+                        spriteBatch.Draw(player.Sprite, new Vector2(p.xPos, p.yPos), null, Color.Purple, 0f, player.Origin, Vector2.One, SpriteEffects.None, 0f); // optimize
+                    }
+                }
+                catch (Exception)
+                {
+
                 }
             }
         }
@@ -181,10 +189,10 @@ namespace ProjectPlatformer
         void SetApplicationSettings()
         {
             IsMouseVisible = true;
-            graphics.PreferredBackBufferWidth = 1920;
-            graphics.PreferredBackBufferHeight = 1080;
+            graphics.PreferredBackBufferWidth = 1500;
+            graphics.PreferredBackBufferHeight = 1200;
 
-            Window.IsBorderless = true;
+            Window.IsBorderless = false;
             Window.Title = "2D-Platformer - Testing version";
         }
         #endregion

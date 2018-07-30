@@ -1,0 +1,15 @@
+D:\ProjectPlatform\Networking\NetworkComms.Net-master\NetworkComms.Net-master\RemoteProcedureCalls\bin\Debug\RemoteProcedureCalls.XML
+D:\ProjectPlatform\Networking\NetworkComms.Net-master\NetworkComms.Net-master\RemoteProcedureCalls\bin\Debug\RemoteProcedureCalls.dll
+D:\ProjectPlatform\Networking\NetworkComms.Net-master\NetworkComms.Net-master\RemoteProcedureCalls\bin\Debug\RemoteProcedureCalls.pdb
+D:\ProjectPlatform\Networking\NetworkComms.Net-master\NetworkComms.Net-master\RemoteProcedureCalls\bin\Debug\NetworkCommsDotNet.dll
+D:\ProjectPlatform\Networking\NetworkComms.Net-master\NetworkComms.Net-master\RemoteProcedureCalls\bin\Debug\protobuf-net.dll
+D:\ProjectPlatform\Networking\NetworkComms.Net-master\NetworkComms.Net-master\RemoteProcedureCalls\bin\Debug\InTheHand.Net.Personal.dll
+D:\ProjectPlatform\Networking\NetworkComms.Net-master\NetworkComms.Net-master\RemoteProcedureCalls\bin\Debug\NetworkCommsDotNet.pdb
+D:\ProjectPlatform\Networking\NetworkComms.Net-master\NetworkComms.Net-master\RemoteProcedureCalls\bin\Debug\protobuf-net.pdb
+D:\ProjectPlatform\Networking\NetworkComms.Net-master\NetworkComms.Net-master\RemoteProcedureCalls\bin\Debug\protobuf-net.xml
+D:\ProjectPlatform\Networking\NetworkComms.Net-master\NetworkComms.Net-master\RemoteProcedureCalls\bin\Debug\InTheHand.Net.Personal.xml
+D:\ProjectPlatform\Networking\NetworkComms.Net-master\NetworkComms.Net-master\RemoteProcedureCalls\obj\Debug\RemoteProcedureCalls.csprojAssemblyReference.cache
+D:\ProjectPlatform\Networking\NetworkComms.Net-master\NetworkComms.Net-master\RemoteProcedureCalls\obj\Debug\RemoteProcedureCalls.csproj.CoreCompileInputs.cache
+D:\ProjectPlatform\Networking\NetworkComms.Net-master\NetworkComms.Net-master\RemoteProcedureCalls\obj\Debug\RemoteProcedureCalls.csproj.CopyComplete
+D:\ProjectPlatform\Networking\NetworkComms.Net-master\NetworkComms.Net-master\RemoteProcedureCalls\obj\Debug\RemoteProcedureCalls.dll
+D:\ProjectPlatform\Networking\NetworkComms.Net-master\NetworkComms.Net-master\RemoteProcedureCalls\obj\Debug\RemoteProcedureCalls.pdb

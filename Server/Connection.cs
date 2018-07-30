@@ -7,15 +7,19 @@ using Microsoft.Xna.Framework;
 using System.Net;
 using System.Net.Sockets;
 using ProjectPlatformer.Character;
+using ProjectPlatformer.Networking;
 
 namespace Server
 {
     [Serializable]
     public class Connection
     {
-        public Player player;
         public int index;
         public NetworkStream stream;
+        public bool lastStreamRecieved = true;
+        public PlayerConnection net = new PlayerConnection();
+        public PlayerConnection latestNet = new PlayerConnection();
+        public byte[] toSend;
 
         public Connection(NetworkStream netStream, int connectionIndex)
         {
@@ -23,9 +27,9 @@ namespace Server
             index = connectionIndex;
         }
 
-        public void UpdateVariables()
+        public void UpdateVariables(Player player)
         {
-
+            net.player = player;
         }
     }
 }

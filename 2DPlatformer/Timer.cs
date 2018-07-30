@@ -4,30 +4,31 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ProjectPlatformer
+namespace ProjectPlatformer.Time
 {
+    [Serializable]
     public class Timer
     {
-        private double time;
+        private float time;
 
         public Timer()
         {
-            time = 0;
+            Reset();
         }
 
         public void Run()
         {
-            time += TimeSpan.FromTicks(1000).TotalMilliseconds;
+            time += (float)TimeSpan.FromTicks(1).TotalMilliseconds;
         }
         public void Reset()
         {
             time = 0;
         }
-        public void SetTime(double newTime)
+        public void SetTime(float newTime)
         {
             time = newTime;
         }
-        public double GetTime()
+        public float GetTime()
         {
             return time;
         }

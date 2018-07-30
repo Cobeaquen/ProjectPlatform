@@ -9,6 +9,7 @@ using System.Net.Sockets;
 using System.IO;
 using ProjectPlatformer;
 using ProjectPlatformer.Networking;
+using ProjectPlatformer.Time;
 
 namespace Server
 {
@@ -19,19 +20,22 @@ namespace Server
         static IPAddress ip;
         static Int32 port = 9009;
         static List<byte[]> read = new List<byte[]>();
-        static byte[] databytes = new byte[1500]; // look for resizing later
+        static byte[] databytes = new byte[2000]; // look for resizing later
         static TcpListener server;
         static List<TcpClient> clients = new List<TcpClient>();
-        static PlatformerNetworking latestNetVars;
+        static PlayerConnection latestNetVars;
+        static PlayerConnection playerToSend;
+
+        static float timeTpUpdate = 1000;
 
         static int timeToMoveText = 10;
 
         static int pos;
 
-        static float updateSpeed = 10000000f;
-        static Timer timer = new Timer(); // be careful with this one (since it might not be necessary and it is 64-bit)
+        static float updateSpeed = 100f;
+        static Timer timer = new Timer();
 
-        static bool timeToSendData = false;
+        static bool lastStreamRecieved = false;
         static int timeBetweenSends = 10;
 
         static void Main(string[] args)
@@ -68,7 +72,7 @@ namespace Server
             CheckForIncomingConnection();
             Console.WriteLine("Waiting for a connection...");
 
-            timeToSendData = true;
+            lastStreamRecieved = true;
 
             RunServer();
         }
@@ -100,48 +104,66 @@ namespace Server
 
                 if (clients.Count > 0)
                 {
-                    if (timer.GetTime() > 0)
+                    timer.Run();
+                    for (int i = 0; i < connections.Count; i++)
                     {
-                        for (int i = 0; i < connections.Count; i++)
+                        if (connections[i].lastStreamRecieved || timer.GetTime() > timeTpUpdate)
                         {
+                            timeTpUpdate = timeTpUpdate + timer.GetTime();
                             if (connections[i].stream != null)
                             {
                                 if (connections[i].stream.DataAvailable) // listening for data
                                 {
+                                    Console.WriteLine("data is available for launch");
                                     int r;
                                     if ((r = connections[i].stream.Read(read[i], 0, read[i].Length)) > 0)
                                     {
-                                        byte[] bytes = new byte[read[i].Length - 1];
-                                        Array.Copy(read[i], 1, bytes, 0, bytes.Length);
+                                        byte[] bytes = GetBytesWithoutMetadata(read[i]);
 
                                         if (!(bytes.Any(b => b != 0)))
                                         {
+                                            Console.WriteLine("Recieved bytes are of NULL value");
                                             RunServer();
                                         }
+
+                                        connections[i].lastStreamRecieved = false;
 
                                         switch (read[i][0])
                                         {
                                             case 0: // this is the data of the player
                                                 if (latestNetVars == null)
-                                                    latestNetVars = new PlatformerNetworking();
+                                                    latestNetVars = new PlayerConnection();
 
+                                                connections[i].toSend = read[i];
 
-                                                PlatformerNetworking netVars = Serialization.DeSerialize<PlatformerNetworking>(bytes);
+                                                PlayerConnection netVars = Serialization.DeSerialize<PlayerConnection>(bytes);
+                                                 connections[i].net = netVars;
+
+                                                if (netVars.blockCells != null)
+                                                {
+                                                    connections[i].net.blockCells.AddRange(netVars.blockCells);
+
+                                                    Console.WriteLine("blocells: {0}", connections[i].net.blockCells.Count);
+                                                }
+
+                                                if (netVars.blockCells != null)
+                                                {
+                                                    Console.WriteLine("hell ye??");
+                                                }
+
                                                 //netVars.GetPlatformerNetworkVariables(latestNetVars);
-                                                connections[i].player = netVars.player;
+
                                                 Console.WriteLine("Player {0}: X: {1} Y: {2}", i, netVars.player.position.X, netVars.player.position.Y);
 
                                                 // wait an amount of time and try that - also try and send a signal back to the original sender of the byte - i just realized thats facking stupid lol
 
-                                                timer.Reset(); // remove and fix this is unnecessary pls
-
-                                                SendDataToClients(i, read[i]);
                                                 latestNetVars = netVars;
-                                                timeToSendData = false;
+
+                                                SendByte(connections[i].stream, 1);
 
                                                 break;
                                             case 1: // our latest sent stream has been recieved
-                                                timeToSendData = true;
+                                                connections[i].lastStreamRecieved = true;
                                                 Console.WriteLine("the clients {0} data was recieved!!", i);
                                                 break;
                                             default:
@@ -150,16 +172,46 @@ namespace Server
                                         read[i] = new byte[read[i].Length];
                                     }
                                 }
+                                /*if (connections.Count > 1 && timer.GetTime() > updateSpeed && connections[i].lastStreamRecieved) // send vars when time comes
+                                {
+                                    timer.Reset();
+                                }
+                                else
+                                {
+                                    SendDataToClients(i, read[i]);
+                                    timer.Run();
+                                }*/
+
+                                if (connections[i].net != connections[i].latestNet)
+                                {
+                                    SendDataToClients(i, connections[i].toSend);
+                                    // offset might cause errors here if there is data stacked (not sure excactly how it works)
+                                }
                             }
-                            //connections[i].stream.Flush(); // probably wanna remove this later yoo
                         }
-                    }
-                    else
-                    {
-                        timer.Run();
                     }
                 }
             }
+        }
+        static byte[] GetTimerBytes()
+        {
+            MemoryStream stream = Serialization.Serialize(timer);
+            byte[] data = Serialization.GetBytesFromStream(stream);
+            byte[] send = SetMetaData(data, 2);
+            return data;
+        }
+        static byte[] SetMetaData(byte[] array, byte metadata)
+        {
+            byte[] newArray = new byte[array.Length + 1];
+            Array.Copy(array, 0, newArray, 1, array.Length);
+            newArray[0] = metadata;
+            return newArray;
+        }
+        static byte[] GetBytesWithoutMetadata(byte[] array)
+        {
+            byte[] newArray = new byte[array.Length - 1];
+            Array.Copy(array, 1, newArray, 0, newArray.Length);
+            return newArray;
         }
 
         static void SendByte(NetworkStream stream, byte send)
@@ -179,16 +231,17 @@ namespace Server
                     try
                     {
                         connections[i].stream.Write(data, 0, data.Length); // sending a stream before it has been successfully recieved
+                        connections[i].latestNet = connections[i].net;
                     }
                     catch
                     {
                         RunServer();
                     }
                 }
-                else
+                else // send the global timer
                 {
-                    SendByte(connections[i].stream, 1);
-                     // offset might cause errors here if there is data stacked (not sure excactly how it works)
+                    byte[] send = GetTimerBytes();
+                    connections[i].stream.Write(send, 0, send.Length);
                 }
             }
         }
