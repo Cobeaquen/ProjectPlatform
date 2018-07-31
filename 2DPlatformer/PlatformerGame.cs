@@ -20,13 +20,16 @@ namespace ProjectPlatformer
     public class PlatformerGame : Game
     {
         #region Singleton
-        public static PlatformerGame instance;
+        public static PlatformerGame Instance;
         #endregion
 
         #region networking
-        public static bool multiplayer = false;
+        public static bool multiplayer;
         public NetworkClient net;
         #endregion
+
+        public Settings settings;
+        public static string cwd;
 
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
@@ -34,10 +37,12 @@ namespace ProjectPlatformer
         public Player player;
 
         public static Vector2 screenCenter;
+
+        private bool drawDebugging = false;
         
         public PlatformerGame()
         {
-            instance = this;
+            Instance = this;
             Cell.CreateGrid();
             graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
@@ -68,30 +73,31 @@ namespace ProjectPlatformer
                 net.LoadMultiplayer(player);
         }
 
+        public T Load<T>(string assetName)
+        {
+            return Content.Load<T>(assetName);
+        }
+
         //-----------------------------------------------------------------------------------------------------------------------------------------------------------
 
         protected override void UnloadContent()
         {
-            
+            if (multiplayer)
+            {
+                net.Exit();
+            }
         }
 
         //-----------------------------------------------------------------------------------------------------------------------------------------------------------
 
         protected override void Update(GameTime gameTime)
         {
-            //first check for collision on the entire player
-
-            /*
-            if (Colliding(new Vector2(playerPosition.X, playerPosition.Y - 25), playerWidth, playerHeight - 50, false, false, Color.White))
-            {
-                Console.WriteLine("Hit me head");
-                //isfalling = false;
-                //velocity = Vector2.Zero;
-            }
-            */
-            //jumping
-
             player.Update();
+
+            if (Keyboard.GetState().IsKeyDown(Keys.Escape))
+            {
+                Exit();
+            }
 
             if (multiplayer)
             {
@@ -109,25 +115,20 @@ namespace ProjectPlatformer
 
             spriteBatch.Begin(SpriteSortMode.Deferred, null, null, null, null, null, player.camera.view);
 
-            spriteBatch.Draw(player.Sprite, player.position.ToVector2(), null, Color.White, 0f, player.Origin, Vector2.One, SpriteEffects.None, 0f); // optimize
+            spriteBatch.Draw(player.Sprite, player.position.ToVector2(), null, Color.White, 0f, player.Origin, Vector2.One, SpriteEffects.None, 0f); // draw player
 
-            /*for (int i = 0; i < surCells.Length; i++)
+            if (drawDebugging)
             {
-                Colliding(new Vector2(surCells[i].x, surCells[i].y), Cell.cellWidth, Cell.cellHeight, Color.Red);
-            }*/
-
-            //Colliding(new Vector2(player.position.X, player.position.Y + (player.Height/2f) * Cell.cellHeight - (feetHeight/2f)), player.Width * Cell.cellWidth, feetHeight, Color.Yellow);
-            //Colliding(new Vector2(player.position.X, player.position.Y), player.Width * Cell.cellWidth, player.Height * Cell.cellHeight, Color.Black);
+                DrawDebug();
+            }
 
             foreach (Cell c in Cell.blockCells)
             {
                 if (c.block != null)
                 {
-                    spriteBatch.Draw(c.block.Sprite, c.ToVector2(), null, Color.ForestGreen, 0f, new Vector2(Cell.cellWidth / 2, Cell.cellHeight / 2), 1f, SpriteEffects.None, 0f);
+                    spriteBatch.Draw(c.block.Sprite, c.ToVector2(), null, Color.White, 0f, new Vector2(Cell.cellWidth / 2, Cell.cellHeight / 2), 1f, SpriteEffects.None, 0f);
                 }
             }
-
-            //spriteBatch.Draw(player.Sprite, new Vector2(player.position.X, player.position.Y + (player.Height / 2f) * Cell.cellHeight - Cell.cellHeight), null, Color.Blue, 0f, new Vector2(5, 5), 1f, SpriteEffects.None, 0f); //optimize
 
             if (multiplayer) // multiplayer
                 DrawMultiplayer();
@@ -176,6 +177,17 @@ namespace ProjectPlatformer
         #endregion
 
         #region Debug
+        private void DrawDebug()
+        {
+            for (int i = 0; i < player.surCells.Length; i++)
+            {
+                Collision.DebugColliding(new Vector2(player.surCells[i].x, player.surCells[i].y), Cell.cellWidth, Cell.cellHeight, Color.Red);
+            }
+
+            Collision.DebugColliding(new Vector2(player.position.X, player.position.Y + (player.Height / 2f) * Cell.cellHeight - (player.feetHeight / 2f)), player.Width * Cell.cellWidth, player.feetHeight, Color.Yellow);
+            Collision.DebugColliding(new Vector2(player.position.X, player.position.Y), player.Width * Cell.cellWidth, player.Height * Cell.cellHeight, Color.Black);
+        }
+
         public void DebugLine(Vector2 begin, Vector2 end, Color color, int width = 1)
         {
             Rectangle r = new Rectangle((int)begin.X, (int)begin.Y, (int)(end - begin).Length() + width, width);
@@ -188,11 +200,35 @@ namespace ProjectPlatformer
         #region Settings
         void SetApplicationSettings()
         {
-            IsMouseVisible = true;
-            graphics.PreferredBackBufferWidth = 1500;
-            graphics.PreferredBackBufferHeight = 1200;
+            cwd = Directory.GetCurrentDirectory();
+            string optionsPath = cwd + "\\Options\\";
+            string settingsFilePath = optionsPath + "Settings.projectplatform";
+            Console.WriteLine();
+            if (!File.Exists(settingsFilePath))
+            {
+                settings = new Settings()
+                {
+                    isBorderless = false,
+                    multiplayer = false,
+                    resolutionWidth = 1500,
+                    resolutionHeight = 1200,
+                    vsync = false
+                };
+                Serialization.SerializeJson(settingsFilePath, settings);
+            }
+            else
+            {
+                settings = Serialization.DeserializeJson<Settings>(optionsPath + "Settings.projectplatform");
+            }
+            Console.WriteLine(cwd);
 
-            Window.IsBorderless = false;
+            IsMouseVisible = true;
+            graphics.PreferredBackBufferWidth = settings.resolutionWidth;
+            graphics.PreferredBackBufferHeight = settings.resolutionHeight;
+
+            Window.IsBorderless = settings.isBorderless;
+            multiplayer = settings.multiplayer;
+            graphics.SynchronizeWithVerticalRetrace = settings.vsync;
             Window.Title = "2D-Platformer - Testing version";
         }
         #endregion

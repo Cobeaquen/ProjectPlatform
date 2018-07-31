@@ -5,7 +5,6 @@
   <Config />
   <SourceFiles>
     <File>D:/ProjectPlatform/2DPlatformer/Content/player.png</File>
-    <File>D:/ProjectPlatform/2DPlatformer/Content/earth.ico</File>
     <File>D:/ProjectPlatform/2DPlatformer/Content/trumperino.png</File>
     <File>D:/ProjectPlatform/2DPlatformer/Content/char1.png</File>
     <File>D:/ProjectPlatform/2DPlatformer/Content/trumperin0.png</File>
@@ -14,5 +13,6 @@
     <File>D:/ProjectPlatform/2DPlatformer/Content/dirt.png</File>
     <File>D:/ProjectPlatform/2DPlatformer/Content/gold.png</File>
     <File>D:/ProjectPlatform/2DPlatformer/Content/iron.png</File>
+    <File>D:/ProjectPlatform/2DPlatformer/Content/Grass.png</File>
   </SourceFiles>
 </SourceFileCollection>

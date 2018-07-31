@@ -20,37 +20,52 @@ using NetworkCommsDotNet.Connections.TCP;
 using ProtoBuf;
 using System.Threading;
 
-namespace ProjectPlatformer
+namespace ProjectPlatformer.Networking
 {
     public class NetworkClient
     {
         public List<NetworkPlayer> connectedClients;
+        public List<int> clients;
+
+        public List<Cell> blockCells;
+
+        /// <summary>
+        /// Total connections to the server
+        /// </summary>
+
+        public int serverConnections { get; set; }
 
         public NetworkPlayer netPlayer = new NetworkPlayer();
 
-        DataSerializer serializer;
-        List<DataProcessor> dataProcessors = new List<DataProcessor>();
+        DataSerializer serializer { get; set; }
+        List<DataProcessor> dataProcessors { get; set; } = new List<DataProcessor>();
         Dictionary<string, string> dataProcessorOptions;
 
         ConnectionInfo serverConnectionInfo;
         Connection serverConnection;
 
-        public string serverIp = "25.88.165.244";
-        public int serverPort = 9009;
+        public string serverIp { get; set; } = "25.88.165.244";
+        public int serverPort { get; set; } = 9009;
 
-        IPEndPoint endPoint;
+        IPEndPoint endPoint { get; set; }
 
-        SendReceiveOptions options;
+        SendReceiveOptions options { get; set; }
 
-        Player player = new Player(false);
+        Player player = new Player();
+        private List<NetworkCell> netCells;
+
+        private bool isConnected;
 
         public NetworkClient()
         {
             connectedClients = new List<NetworkPlayer>();
+            clients = new List<int>();
+            netCells = new List<NetworkCell>();
+            blockCells = new List<Cell>();
             endPoint = new IPEndPoint(IPAddress.Parse(serverIp), serverPort);
         }
 
-        public void SetDataProcessors()
+        public void SetSendReceiveOptions()
         {
             serializer = DPSManager.GetDataSerializer<ProtobufSerializer>();
             dataProcessors.Add(DPSManager.GetDataProcessor<SharpZipLibGzipCompressor>());
@@ -83,16 +98,18 @@ namespace ProjectPlatformer
 
         private void AppendListeners()
         {
-            NetworkComms.AppendGlobalIncomingPacketHandler<NetworkPlayer>("CustomObject", OnReceivePlayer);
-            //NetworkComms.AppendGlobalIncomingPacketHandler<PlayerConnect>("CustomObject", OnNewClientConnect);
-            //NetworkComms.AppendGlobalIncomingPacketHandler<PlayerConnection>("CustomObject", OnNewClientConnect);
+            NetworkComms.AppendGlobalConnectionCloseHandler(OnServerClose);
+            NetworkComms.AppendGlobalIncomingPacketHandler<NetworkPlayer>("Player", OnReceivePlayer);
+            NetworkComms.AppendGlobalIncomingPacketHandler<NetworkPlayer>("OnConnect", OnConnectedPlayer);
+            NetworkComms.AppendGlobalIncomingPacketHandler<NetworkCell[]>("OnConnectBlocks", OnConnectedBlocks);
+            NetworkComms.AppendGlobalIncomingPacketHandler<NetworkCell>("CellChanged", OnBlockCellChanged);
         }
 
         public void LoadMultiplayer(Player p)
         {
-            SetDataProcessors();
-            ConnectToServer();
+            SetSendReceiveOptions();
             AppendListeners();
+            ConnectToServer();
             player = p;
         }
 
@@ -100,12 +117,21 @@ namespace ProjectPlatformer
         {
             if (!serverConnection.ConnectionAlive())
                 ConnectToServer();
-            SendPlayer();
+            if (!isConnected)
+                return;
+            try
+            {
+                SendPlayer();
+            }
+            catch (CommunicationException)
+            {
+                Console.WriteLine("Failed to send player");
+            }
         }
         public void SendPlayer()
         {
             SetNetworkPlayer();
-            serverConnection.SendObject("CustomObject", netPlayer);
+            serverConnection.SendObject("Player", netPlayer);
         }
 
         private void SetNetworkPlayer()
@@ -114,27 +140,80 @@ namespace ProjectPlatformer
             netPlayer.yPos = player.position.Y;
         }
 
-        public void OnNewClientConnect(PacketHeader header, Connection connection, PlayerConnect newPlayer)
+        public void OnConnectedPlayer(PacketHeader header, Connection connection, NetworkPlayer newPlayer)
         {
-            netPlayer.playerIndex = newPlayer.playerIndex;
-            Console.WriteLine("JUST RECEIVED THE NEW PACKAGE!!! {0}", netPlayer.playerIndex);
+            netPlayer = newPlayer;
+            serverConnections++;
+            Console.WriteLine("You are player: {0}", netPlayer.playerIndex);
+            isConnected = true;
+        }
+        public void OnConnectedBlocks (PacketHeader header, Connection connection, NetworkCell[] newBlockCells)
+        {
+            foreach (NetworkCell cell in newBlockCells)
+            {
+                Cell newCell = cell.ToCell();
+                blockCells.Add(newCell);
+                Block.PlaceBlock(newCell, newCell.block);
+            }
+        }
+
+        public void OnServerClose(Connection connection)
+        {
+            Console.WriteLine("Lost Connection");
+            Exit();
+            PlatformerGame.Instance.Exit();
         }
 
         public void OnReceivePlayer(PacketHeader header, Connection connection, NetworkPlayer p)
         {
-            //for (int i = 0; i < connectedClients.Count; i++)
-            //{
-            //    if (connectedClients[i] == p[i])
-            //}
-            Console.WriteLine("Just received new player.. X: {0} Y: {1}", p.xPos, p.yPos);
-            if (connectedClients.Count < 1)
+            if (!clients.Contains(p.playerIndex))
             {
+                clients.Add(p.playerIndex);
+                serverConnections++;
                 connectedClients.Add(p);
             }
-            else
+
+            int i = clients.IndexOf(p.playerIndex);
+
+            //Console.WriteLine("Just received new player {0}'s position X: {1} Y: {2}", p.playerIndex, p.xPos, p.yPos);
+
+            connectedClients[i] = p;
+        }
+
+        public void OnBlockCellChanged(PacketHeader header, Connection connection, NetworkCell cell)
+        {
+            Console.WriteLine("JUST RECEIVED NEW CELL!!!");
+
+            Cell newCell = cell.ToCell();
+
+            Block.PlaceBlock(newCell, newCell.block);
+        }
+
+        public void ChangeCell(Cell blockCell, CellChangeType change)
+        {
+            NetworkCell newCell = blockCell.ToNetworkCell();
+            
+            switch (change)
             {
-                connectedClients[0] = p;
+                case CellChangeType.RemoveBlock:
+                    newCell.block = null;
+                    break;
+                case CellChangeType.PlaceBlock:
+                    newCell.block.Width = blockCell.block.Width;
+                    newCell.block.Height = blockCell.block.Height;
+                    blockCells.Add(blockCell); // ?????
+                    break;
             }
+            serverConnection.SendObject("CellChanged", newCell);
+        }
+        public void Exit()
+        {
+            NetworkComms.Shutdown();
         }
     }
+    public enum CellChangeType
+    {
+        RemoveBlock,
+        PlaceBlock
+    };
 }

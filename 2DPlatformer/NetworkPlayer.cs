@@ -5,17 +5,19 @@ using System.Text;
 using System.Threading.Tasks;
 using ProtoBuf;
 
-namespace ProjectPlatformer
+namespace ProjectPlatformer.Networking
 {   [ProtoContract]
     public class NetworkPlayer
     {
         [ProtoMember(1)]public float xPos;
         [ProtoMember(2)]public float yPos;
-        public int playerIndex; // loop through and check if it matches the current one
-    }
-    [ProtoContract]
-    public class PlayerConnect
-    {
-        [ProtoMember(1)]public int playerIndex;
+        [ProtoMember(3)]public int playerIndex; // loop through and check if it matches the current one
+
+        public NetworkPlayer()
+        {
+            xPos = 0;
+            yPos = 0;
+            playerIndex = 0;
+        }
     }
 }

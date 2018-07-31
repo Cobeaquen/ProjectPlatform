@@ -30,12 +30,12 @@ namespace ProjectPlatformer
                     height + rect1.Y > rect2.Y)
                     {
                         contacts++;
-                        colTypes.Add(nearbyCells[i].colType);
+                        //colTypes.Add(nearbyCells[i].colType);
                         edge.Add(nearbyCells[i]);
                     }
                 }
             }
-            collisionTypes = colTypes.Where(c => c != CollisionType.none).ToArray(); //remove?
+            //collisionTypes = colTypes.Where(c => c != CollisionType.none).ToArray(); //remove?
             edgeCells = edge.Where(e => e != null).ToArray();
             return contacts;
             /*
@@ -70,10 +70,10 @@ namespace ProjectPlatformer
             int cellU = (int)sectionTopLeft.Y - halheight;
             int cellD = (int)sectionTopLeft.Y + halheight;
 
-            PlatformerGame.instance.DebugLine(new Vector2(cellL, cellU), new Vector2(cellR, cellU), clr, 5);
-            PlatformerGame.instance.DebugLine(new Vector2(cellR, cellU), new Vector2(cellR, cellD), clr, 5);
-            PlatformerGame.instance.DebugLine(new Vector2(cellR, cellD), new Vector2(cellL, cellD), clr, 5);
-            PlatformerGame.instance.DebugLine(new Vector2(cellL, cellD), new Vector2(cellL, cellU), clr, 5);
+            PlatformerGame.Instance.DebugLine(new Vector2(cellL, cellU), new Vector2(cellR, cellU), clr, 5);
+            PlatformerGame.Instance.DebugLine(new Vector2(cellR, cellU), new Vector2(cellR, cellD), clr, 5);
+            PlatformerGame.Instance.DebugLine(new Vector2(cellR, cellD), new Vector2(cellL, cellD), clr, 5);
+            PlatformerGame.Instance.DebugLine(new Vector2(cellL, cellD), new Vector2(cellL, cellU), clr, 5);
         }
         #endregion
     }

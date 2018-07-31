@@ -7,23 +7,34 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using ProjectPlatformer.Grid;
+using ProjectPlatformer.Networking;
 
 namespace ProjectPlatformer.Blocks
 {
-    [Serializable]
     public class Block
     {
-        [NonSerialized]public Cell cell;
-        [NonSerialized]public Vector2 Origin;
-        [NonSerialized]public Texture2D Sprite;
-        public int Width, Height; // might wanna add [nonserialized] attribute
+        //public Cell cell;
+        public Vector2 Origin { get; set; }
+        public Texture2D Sprite { get; set; }
+        public int Width { get; set; }
+        public int Height { get; set; }
+        public BlockType type { get; set; }
 
-        public Block(Texture2D sprite, int width, int height)
+        public Block(BlockType blockType, int width, int height)
         {
-            Sprite = sprite;
+            type = blockType;
+            Sprite = PlatformerGame.Instance.Load<Texture2D>(type.ToString()); // will cause an error if this is called before calling LoadContent() in the main class
             Width = width;
             Height = height;
             Origin = new Vector2(width/2, height/2);
+        }
+        public NetworkBlock ToNetworkBlock()
+        {
+            NetworkBlock netBlock = new NetworkBlock();
+            netBlock.type = type;
+            netBlock.Width = Cell.cellWidth;
+            netBlock.Height = Cell.cellHeight;
+            return netBlock;
         }
 
         public void DrawBlock(SpriteBatch batch)
@@ -35,5 +46,11 @@ namespace ProjectPlatformer.Blocks
         {
             Cell.SetGridBlock(cell, block);
         }
+
+        public enum BlockType
+        {
+            Dirt,
+            Grass
+        };
     }
 }

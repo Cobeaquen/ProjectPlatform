@@ -15,41 +15,41 @@ namespace ProjectPlatformer.Character
 {
     public class Player
     {
-        public Camera camera;
+        public Camera camera { get; set; }
 
-        public Position position;
-        public Cell playerCell;
-        public Vector2 Origin;
-        public Texture2D Sprite;
+        public Position position { get; set; }
+        public Cell playerCell { get; set; }
+        public Vector2 Origin { get; set; }
+        public Texture2D Sprite { get; set; }
         public int Width, Height;
         public float HalfWidth, HalfHeight;
-        public float Speed;
+        public float Speed { get; set; }
 
-        bool isfalling;
-        Vector2 velocity;
+        private bool isfalling;
+        private Vector2 velocity;
 
         private MouseState oldstate;
 
         #region Grid
         Cell prevPlayerCell;
-        Cell[] surCells;
+        public Cell[] surCells { get; set; }
         Cell[] collCell;
         #endregion
 
         CollisionType[] colType;
 
         //player collision sections
-        int feetHeight = Cell.cellHeight * 2;
-        int rightHeight = Cell.cellHeight;
-        int rightWidth = Cell.cellWidth;
-        int leftHeight = Cell.cellHeight;
-        int leftwidth = Cell.cellHeight;
+        public int feetHeight = Cell.cellHeight * 2;
+        public int rightHeight = Cell.cellHeight;
+        public int rightWidth = Cell.cellWidth;
+        public int leftHeight = Cell.cellHeight;
+        public int leftwidth = Cell.cellHeight;
 
         bool stopped = false;
         bool isMoving = false;
         bool movingRight = false, movingLeft = false;
 
-        public Player(bool localPlayer)
+        public Player(bool localPlayer) // remove parameter?
         {
             if (localPlayer)
             {
@@ -64,10 +64,14 @@ namespace ProjectPlatformer.Character
                 Speed = 10f;
             }
         }
+        public Player()
+        {
+
+        }
 
         public void LoadContent(ContentManager content)
         {
-            Sprite = content.Load<Texture2D>("trumperin0"); //Pixel(200, 200);
+            Sprite = PlatformerGame.Instance.Load<Texture2D>("trumperin0"); //Pixel(200, 200);
 
             playerCell = Cell.GetCell(position.ToVector2());
             surCells = Cell.GetAreaOfCells(playerCell, 4, 6);
@@ -217,11 +221,18 @@ namespace ProjectPlatformer.Character
         {
             Vector2 position = Cell.SnapToGrid(Mouse.GetState().Position.ToVector2() - new Vector2(camera.view.Translation.X, camera.view.Translation.Y));
             Cell blockCell = Cell.GetCell(position);
-            Block.PlaceBlock(blockCell, new Block(PlatformerGame.instance.Pixel(Cell.cellWidth, Cell.cellHeight), Cell.cellWidth, Cell.cellHeight)); // remember to change texture
-
-            if (PlatformerGame.multiplayer)
+            if (blockCell.block == null)
             {
-                Block.PlaceBlock(blockCell, new Block(PlatformerGame.instance.Pixel(Cell.cellWidth, Cell.cellHeight), Cell.cellWidth, Cell.cellHeight));
+                Block.PlaceBlock(blockCell, new Block(Block.BlockType.Grass, Cell.cellWidth, Cell.cellHeight)); // remember to change texture
+
+                if (PlatformerGame.multiplayer)
+                {
+                    PlatformerGame.Instance.net.ChangeCell(blockCell, Networking.CellChangeType.PlaceBlock);
+                }
+            }
+            else
+            {
+                Console.WriteLine("You just tried to place a block, where there already is a block");
             }
         }
     }

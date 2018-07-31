@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.Runtime.Serialization;
+using Newtonsoft.Json;
 using System.IO;
 
 namespace ProjectPlatformer
@@ -40,6 +41,23 @@ namespace ProjectPlatformer
         public static byte[] GetBytesFromStream(MemoryStream stream)
         {
             return stream.GetBuffer();
+        }
+
+        public static void SerializeJson<T>(string fileName, T objectToSerialize)
+        {
+            using (StreamWriter file = File.CreateText(fileName)) // remember to change path to something simpler, try using an @ sign before the string
+            {
+                JsonSerializer serializer = new JsonSerializer();
+                serializer.Serialize(file, objectToSerialize);
+            }
+        }
+        public static T DeserializeJson<T>(string fileName)
+        {
+            using (StreamReader file = File.OpenText(fileName))
+            {
+                JsonSerializer serializer = new JsonSerializer();
+                return (T)serializer.Deserialize(file, typeof(T));
+            }
         }
     }
 }

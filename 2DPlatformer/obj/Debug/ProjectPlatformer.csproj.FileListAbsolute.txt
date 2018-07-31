@@ -42,3 +42,7 @@ D:\ProjectPlatform\2DPlatformer\bin\DesktopGL\AnyCPU\Debug\protobuf-net.xml
 D:\ProjectPlatform\2DPlatformer\bin\DesktopGL\AnyCPU\Debug\ProtobufSerializer.pdb
 D:\ProjectPlatform\2DPlatformer\bin\DesktopGL\AnyCPU\Debug\QuickLZCompressor.pdb
 D:\ProjectPlatform\2DPlatformer\bin\DesktopGL\AnyCPU\Debug\SharpZipLibCompressor.pdb
+D:\ProjectPlatform\2DPlatformer\bin\DesktopGL\AnyCPU\Debug\Content\Grass.xnb
+D:\ProjectPlatform\2DPlatformer\bin\DesktopGL\AnyCPU\Debug\Newtonsoft.Json.dll
+D:\ProjectPlatform\2DPlatformer\bin\DesktopGL\AnyCPU\Debug\Newtonsoft.Json.pdb
+D:\ProjectPlatform\2DPlatformer\bin\DesktopGL\AnyCPU\Debug\Newtonsoft.Json.xml

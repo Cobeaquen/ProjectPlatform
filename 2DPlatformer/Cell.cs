@@ -5,22 +5,21 @@ using System.Text;
 using System.Threading.Tasks;
 using ProjectPlatformer.Blocks;
 using Microsoft.Xna.Framework;
+using ProjectPlatformer.Networking;
 
 namespace ProjectPlatformer.Grid
 {
-    [Serializable]
     public class Cell
     {
         public static List<Cell> blockCells = new List<Cell>();
 
         public int x, y;
         public Block block;
-        [NonSerialized]public bool containsPlayer;
-        [NonSerialized]public CollisionType colType;
+        public bool containsPlayer;
 
-        [NonSerialized]public static readonly int cellWidth = 50, cellHeight = 50;
-        [NonSerialized]public static int columns = 1000, rows = 1000;
-        [NonSerialized]public static Cell[,] grid;
+        public static readonly int cellWidth = 50, cellHeight = 50;
+        public static int columns = 1000, rows = 1000;
+        public static Cell[,] grid;
 
         public Cell(int _x, int _y)
         {
@@ -102,6 +101,14 @@ namespace ProjectPlatformer.Grid
         {
             return new Vector2(x, y);
         }
+        public NetworkCell ToNetworkCell()
+        {
+            NetworkCell netCell = new NetworkCell();
+            netCell.block = block.ToNetworkBlock();
+            netCell.x = x;
+            netCell.y = y;
+            return netCell;
+        }
 
         #region Cells Nearby
 
@@ -133,31 +140,18 @@ namespace ProjectPlatformer.Grid
             for (int y = 0; y < height; y++)
             {
                 Cell cell01 = GetCell(topLeftcell, width, y);
-                cell01.colType = CollisionType.right;
                 cells.Add(cell01);
                 Cell cell02 = GetCell(topLeftcell, -1, y);
-                cell02.colType = CollisionType.left;
-                cells.Add(cell02);
 
-                /*if (y == height - 1)
-                {
-                    Cell cell03 = GetCell(topLeftcell, width, height);
-                    cell03.colType = CollisionType.feet;
-                    cells.Add(cell03);
-                    Cell cell04 = GetCell(topLeftcell, -1, height);
-                    cell04.colType = CollisionType.feet;
-                    cells.Add(cell04);
-                }*/
+                cells.Add(cell02);
             }
             for (int x = 0; x < width; x++)
             {
                 Cell cell01 = GetCell(topLeftcell, x, height);
-                cell01.colType = CollisionType.feet;
                 cells.Add(cell01);
                 Cell cell02 = GetCell(topLeftcell, x, -1);
                 if (cell02 != null)
                 {
-                    cell02.colType = CollisionType.head;
                     cells.Add(cell02);
                 }
             }
