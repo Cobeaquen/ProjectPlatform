@@ -46,3 +46,5 @@ D:\ProjectPlatform\2DPlatformer\bin\DesktopGL\AnyCPU\Debug\Content\Grass.xnb
 D:\ProjectPlatform\2DPlatformer\bin\DesktopGL\AnyCPU\Debug\Newtonsoft.Json.dll
 D:\ProjectPlatform\2DPlatformer\bin\DesktopGL\AnyCPU\Debug\Newtonsoft.Json.pdb
 D:\ProjectPlatform\2DPlatformer\bin\DesktopGL\AnyCPU\Debug\Newtonsoft.Json.xml
+D:\ProjectPlatform\2DPlatformer\bin\DesktopGL\AnyCPU\Debug\Content\lighteffect.xnb
+D:\ProjectPlatform\2DPlatformer\bin\DesktopGL\AnyCPU\Debug\Content\lightmask.xnb

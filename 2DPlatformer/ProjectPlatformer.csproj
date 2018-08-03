@@ -44,13 +44,14 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="Block.cs" />
-    <Compile Include="Box.cs" />
     <Compile Include="Camera.cs" />
     <Compile Include="Cell.cs" />
     <Compile Include="Collision.cs" />
+    <Compile Include="Map.cs" />
     <Compile Include="NetworkBlock.cs" />
     <Compile Include="NetworkCell.cs" />
     <Compile Include="NetworkPlayer.cs" />
+    <Compile Include="Noise.cs" />
     <Compile Include="PlatformerGame.cs" />
     <Compile Include="NetworkClient.cs" />
     <Compile Include="PlayerConnection.cs" />
@@ -62,6 +63,7 @@
     <Compile Include="ServerRequest.cs" />
     <Compile Include="Settings.cs" />
     <Compile Include="Timer.cs" />
+    <Compile Include="World.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="FastNoise">

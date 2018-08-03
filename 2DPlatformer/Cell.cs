@@ -6,31 +6,50 @@ using System.Threading.Tasks;
 using ProjectPlatformer.Blocks;
 using Microsoft.Xna.Framework;
 using ProjectPlatformer.Networking;
+using Microsoft.Xna.Framework.Graphics;
+using ProtoBuf;
 
 namespace ProjectPlatformer.Grid
 {
+    [ProtoContract]
     public class Cell
     {
+        public static Cell[] CellsOnScreen { get; set; }
+
+        [ProtoMember(1)] // ?
         public static List<Cell> blockCells = new List<Cell>();
 
-        public int x, y;
+        [ProtoMember(2)]
+        public int x;
+        [ProtoMember(3)]
+        public int y;
+        [ProtoMember(4)]
         public Block block;
-        public bool containsPlayer;
 
-        public static readonly int cellWidth = 50, cellHeight = 50;
-        public static int columns = 1000, rows = 1000;
         public static Cell[,] grid;
+        public static readonly int cellWidth = 50, cellHeight = 50;
 
-        public Cell(int _x, int _y)
+        public Cell(int _x, int _y) // need to create a new constructor without parameter to serialize
         {
             x = _x;
             y = _y;
 
             block = null;
         }
+        public Cell()
+        {
+
+        }
+
+        public void DrawBlock(SpriteBatch batch)
+        {
+            if (block.Sprite == null)
+                block.SetSprite(block.type);
+            batch.Draw(block.Sprite, ToVector2(), null, Color.White, 0f, new Vector2(cellWidth / 2, cellHeight / 2), 1f, block.orientation, 0f);
+        }
 
         #region gridfunctions
-        public static void CreateGrid()
+        public static void CreateGrid(int rows, int columns)
         {
             grid = new Cell[rows, columns];
             for (int y = 0; y < columns; y++)
@@ -89,7 +108,6 @@ namespace ProjectPlatformer.Grid
             catch (IndexOutOfRangeException)
             {
                 return null;
-                throw;
             }
         }
         public static Cell GetCell(int x, int y)
@@ -177,9 +195,9 @@ namespace ProjectPlatformer.Grid
         #endregion
         public static Cell[] GetCellsOnScreen(Vector2 cameraPos, int screenWidth, int screenHeight)
         {
-            int shellWidth = 1;
+            int shellWidth = 2;
             int shellHeight = 2;
-            Vector2 camCornerPos = new Vector2(cameraPos.X - (screenWidth / 2f) - (shellWidth * cellWidth), cameraPos.Y - (screenHeight / 2f) - ((shellHeight / 2) * cellHeight));
+            Vector2 camCornerPos = new Vector2(cameraPos.X - (screenWidth / 2f) - cellWidth, cameraPos.Y - (screenHeight / 2f) - ((shellHeight / 2) * cellHeight));
             Vector2 camCellPos = SnapToGrid(camCornerPos);
             Cell camCell = GetCell(camCellPos);
 
@@ -212,12 +230,16 @@ namespace ProjectPlatformer.Grid
                     }
                     catch (IndexOutOfRangeException)
                     {
-                        return null;
+                        return cells;
                     }
                 }
             }
 
             return cells;
+        }
+        public static void UpdateCellsOnScreen(Vector2 cameraPos, int screenWidth, int screenHeight)
+        {
+            CellsOnScreen = GetCellsOnScreen(cameraPos, screenWidth, screenHeight);
         }
         #endregion
     }

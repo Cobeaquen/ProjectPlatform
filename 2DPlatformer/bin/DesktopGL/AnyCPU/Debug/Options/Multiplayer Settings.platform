@@ -1,0 +1,7 @@
+{
+"ServerIp":"192.168.1.150",
+"ServerPort":9009,
+"MinDeltaMove":1.0,
+"UpdateIntervals":50,
+"SmoothMovement":true
+}

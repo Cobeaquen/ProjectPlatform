@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <SourceFile>D:/ProjectPlatform/2DPlatformer/Content/dirt.png</SourceFile>
-  <SourceTime>2018-07-30T17:53:21.3253063+02:00</SourceTime>
-  <DestFile>D:/ProjectPlatform/2DPlatformer/Content/bin/DesktopGL/dirt.xnb</DestFile>
-  <DestTime>2018-07-30T22:01:40.7304486+02:00</DestTime>
+  <SourceFile>D:/ProjectPlatform/2DPlatformer/Content/Dirt.png</SourceFile>
+  <SourceTime>2018-08-02T18:58:47.7222124+02:00</SourceTime>
+  <DestFile>D:/ProjectPlatform/2DPlatformer/Content/bin/DesktopGL/Dirt.xnb</DestFile>
+  <DestTime>2018-08-03T04:11:44.1930964+02:00</DestTime>
   <Importer>TextureImporter</Importer>
   <ImporterTime>2017-03-01T16:05:36+01:00</ImporterTime>
   <Processor>TextureProcessor</Processor>

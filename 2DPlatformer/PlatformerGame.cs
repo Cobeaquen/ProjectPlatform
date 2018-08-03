@@ -6,49 +6,60 @@ using System.Linq;
 using System.Collections.Generic;
 using ProjectPlatformer.Blocks;
 using ProjectPlatformer.Grid;
-using System.Net;
-using System.Net.Sockets;
 using System.Reflection;
 using System.IO;
 using System.Threading.Tasks;
 using ProjectPlatformer.Networking;
 using ProjectPlatformer.Character;
 using ProjectPlatformer.Time;
+using System.Threading;
 
 namespace ProjectPlatformer
 {
     public class PlatformerGame : Game
     {
         #region Singleton
-        public static PlatformerGame Instance;
+        public static PlatformerGame Instance { get; set; }
         #endregion
 
         #region networking
-        public static bool multiplayer;
-        public NetworkClient net;
+        public static bool multiplayer { get; set; }
+        public NetworkClient net { get; set; }
         #endregion
 
-        public Settings settings;
-        public static string cwd;
+        public Map map;
 
-        GraphicsDeviceManager graphics;
-        SpriteBatch spriteBatch;
+        public static Random rand;
 
-        public Player player;
+        public static Settings settings { get; set; }
+        public static string cwd { get; set; }
+        public static string OptionsPath { get; set; }
 
-        public static Vector2 screenCenter;
+        GraphicsDeviceManager graphics { get; set; }
+        SpriteBatch spriteBatch { get; set; }
 
-        private bool drawDebugging = false;
-        
+        public Player player { get; set; }
+
+        public static Vector2 screenCenter { get; set; }
+
+        private bool drawDebugging { get; set; } = false;
+
         public PlatformerGame()
         {
             Instance = this;
-            Cell.CreateGrid();
+            rand = new Random();
             graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
             SetApplicationSettings();
             net = new NetworkClient();
             player = new Player(true);
+            map = new Map();
+
+            if (settings.EditorMode)
+            {
+                settings.multiplayer = false;
+                multiplayer = false;
+            }
         }
 
         protected override void Initialize()
@@ -60,11 +71,16 @@ namespace ProjectPlatformer
 
         protected override void LoadContent()
         {
-            Cell.blockCells.Clear();
-
             screenCenter = new Vector2(graphics.GraphicsDevice.Viewport.Width / 2, graphics.GraphicsDevice.Viewport.Height / 2);
 
+            // load or create new world
+            map.LoadMap("new_world.world"); // will create map everytime
+            //map.CreateMap(420);
+
+            Cell.blockCells.Clear();
+
             player.LoadContent(Content);
+            
             //playerSprite = Content.Load<Texture2D>("player");
 
             spriteBatch = new SpriteBatch(GraphicsDevice);
@@ -82,6 +98,7 @@ namespace ProjectPlatformer
 
         protected override void UnloadContent()
         {
+            map.SaveWorld("new_world.world");
             if (multiplayer)
             {
                 net.Exit();
@@ -92,7 +109,22 @@ namespace ProjectPlatformer
 
         protected override void Update(GameTime gameTime)
         {
+            if (Cell.CellsOnScreen == null)
+            {
+                Cell.UpdateCellsOnScreen(player.camera.position, settings.resolutionWidth, settings.resolutionHeight);
+            }
+
             player.Update();
+
+            if (settings.EditorMode)
+            {
+                player.camera.MoveAroundFreely();
+            }
+
+            if (player.camera.HasMoved(Cell.cellWidth))
+            {
+                Cell.UpdateCellsOnScreen(player.camera.position, settings.resolutionWidth, settings.resolutionHeight);
+            }
 
             if (Keyboard.GetState().IsKeyDown(Keys.Escape))
             {
@@ -122,38 +154,37 @@ namespace ProjectPlatformer
                 DrawDebug();
             }
 
-            foreach (Cell c in Cell.blockCells)
+            /*foreach (Cell c in Cell.blockCells) // get every cell on the screen instead
             {
                 if (c.block != null)
                 {
-                    spriteBatch.Draw(c.block.Sprite, c.ToVector2(), null, Color.White, 0f, new Vector2(Cell.cellWidth / 2, Cell.cellHeight / 2), 1f, SpriteEffects.None, 0f);
+                    
                 }
-            }
+            }*/
+
+            DrawWorld();
 
             if (multiplayer) // multiplayer
-                DrawMultiplayer();
+                net.Draw(spriteBatch);
 
             spriteBatch.End();
 
             base.Draw(gameTime);
         }
 
-        //-----------------------------------------------------------------------------------------------------------------------------------------------------------
-
-        private void DrawMultiplayer()
+        private void DrawWorld()
         {
-            if (net.connectedClients.Count > 0)
-            {
-                try
-                {
-                    foreach (NetworkPlayer p in net.connectedClients)
-                    {
-                        spriteBatch.Draw(player.Sprite, new Vector2(p.xPos, p.yPos), null, Color.Purple, 0f, player.Origin, Vector2.One, SpriteEffects.None, 0f); // optimize
-                    }
-                }
-                catch (Exception)
-                {
+            //Cell[] cellsOnScreen = Cell.GetCellsOnScreen(player.camera.position, settings.resolutionWidth, settings.resolutionHeight);
 
+            if (Cell.CellsOnScreen != null)
+            {
+                foreach (Cell cell in Cell.CellsOnScreen)//GetCellsOnScreen(player.camera.position, settings.resolutionWidth, settings.resolutionHeight))
+                {
+                    if (cell != null)
+                        if (cell.block != null)
+                        {
+                            cell.DrawBlock(spriteBatch);
+                        }
                 }
             }
         }
@@ -201,9 +232,9 @@ namespace ProjectPlatformer
         void SetApplicationSettings()
         {
             cwd = Directory.GetCurrentDirectory();
-            string optionsPath = cwd + "\\Options\\";
-            string settingsFilePath = optionsPath + "Settings.projectplatform";
-            Console.WriteLine();
+            OptionsPath = cwd + "\\Options\\";
+            string settingsFilePath = OptionsPath + "Settings.platform";
+
             if (!File.Exists(settingsFilePath))
             {
                 settings = new Settings()
@@ -212,17 +243,19 @@ namespace ProjectPlatformer
                     multiplayer = false,
                     resolutionWidth = 1500,
                     resolutionHeight = 1200,
-                    vsync = false
+                    vsync = false,
+                    EditorMode = false
                 };
                 Serialization.SerializeJson(settingsFilePath, settings);
             }
             else
             {
-                settings = Serialization.DeserializeJson<Settings>(optionsPath + "Settings.projectplatform");
+                settings = Serialization.DeserializeJson<Settings>(settingsFilePath);
             }
             Console.WriteLine(cwd);
 
             IsMouseVisible = true;
+            Window.AllowUserResizing = true;
             graphics.PreferredBackBufferWidth = settings.resolutionWidth;
             graphics.PreferredBackBufferHeight = settings.resolutionHeight;
 

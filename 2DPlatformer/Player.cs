@@ -27,11 +27,11 @@ namespace ProjectPlatformer.Character
 
         private bool isfalling;
         private Vector2 velocity;
+        Position previousPos = new Position(0, 0);
 
         private MouseState oldstate;
 
         #region Grid
-        Cell prevPlayerCell;
         public Cell[] surCells { get; set; }
         Cell[] collCell;
         #endregion
@@ -53,9 +53,12 @@ namespace ProjectPlatformer.Character
         {
             if (localPlayer)
             {
-                camera = new Camera();
                 isfalling = true;
                 position = new Position(PlatformerGame.screenCenter + new Vector2(1000, 1000));
+                float halfWidth = PlatformerGame.settings.resolutionWidth / 2f;
+                float halfHeight = PlatformerGame.settings.resolutionHeight / 2f;
+                camera = new Camera(position.ToVector2(), halfWidth + Cell.cellWidth/2f, Map.mapWidth * Cell.cellWidth - PlatformerGame.settings.resolutionWidth - Cell.cellWidth/2f, halfHeight + Cell.cellHeight / 2f, Map.mapHeight * Cell.cellHeight - halfHeight - Cell.cellHeight/2f);
+
                 Width = 3;
                 HalfWidth = Width / 2f;
                 Height = 5;
@@ -75,14 +78,31 @@ namespace ProjectPlatformer.Character
 
             playerCell = Cell.GetCell(position.ToVector2());
             surCells = Cell.GetAreaOfCells(playerCell, 4, 6);
+
+            camera.SetDisplay(position.ToVector2());
         }
 
         public void Update()
         {
-            KeyboardState state = Keyboard.GetState();
             MouseState mState = Mouse.GetState();
 
-            if (Keyboard.GetState().IsKeyDown(Keys.Space))
+            if (!PlatformerGame.settings.EditorMode)
+            {
+                Movement();
+            }
+
+            if (mState.LeftButton == ButtonState.Pressed && oldstate.LeftButton == ButtonState.Released)
+            {
+                PlaceBlock();
+            }
+            oldstate = mState;
+        }
+
+        public void Movement()
+        {
+            KeyboardState state = Keyboard.GetState();
+
+            if (state.IsKeyDown(Keys.Space))
             {
                 velocity.Y = -20f; //Vector2.Lerp(playerPosition, new Vector2(playerPosition.X, lastYPosition - 100f), 0.07f);
             }
@@ -193,13 +213,6 @@ namespace ProjectPlatformer.Character
                 if (velocity.X < 0)
                     velocity.X = 0;
             }
-            prevPlayerCell = playerCell;
-
-            if (mState.LeftButton == ButtonState.Pressed && oldstate.LeftButton == ButtonState.Released)
-            {
-                PlaceBlock();
-            }
-            oldstate = mState;
 
             if (isfalling)
             {
@@ -214,16 +227,30 @@ namespace ProjectPlatformer.Character
         private void Move(Vector2 newPos)
         {
             position = new Position(newPos);
+
             camera.MoveTowards(newPos);
+
+            camera.HitWall();
+        }
+
+        public bool HasMoved(float distance)
+        {
+            if (Math.Abs(previousPos.X - position.X) > distance || Math.Abs(previousPos.Y - position.Y) > distance)
+            {
+                previousPos = position;
+                return true;
+            }
+            return false;
         }
 
         private void PlaceBlock()
         {
-            Vector2 position = Cell.SnapToGrid(Mouse.GetState().Position.ToVector2() - new Vector2(camera.view.Translation.X, camera.view.Translation.Y));
+            Vector2 position = Cell.SnapToGrid(camera.PixelToWorldCoords(Mouse.GetState().Position.ToVector2()));
             Cell blockCell = Cell.GetCell(position);
             if (blockCell.block == null)
             {
-                Block.PlaceBlock(blockCell, new Block(Block.BlockType.Grass, Cell.cellWidth, Cell.cellHeight)); // remember to change texture
+                Block.PlaceBlock(blockCell, new Block(Block.BlockType.Dirt));
+                Map.world.AddBlock(blockCell);
 
                 if (PlatformerGame.multiplayer)
                 {

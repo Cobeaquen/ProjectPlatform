@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.Runtime.Serialization;
 using Newtonsoft.Json;
+using ProtoBuf;
 using System.IO;
 
 namespace ProjectPlatformer
@@ -45,18 +46,51 @@ namespace ProjectPlatformer
 
         public static void SerializeJson<T>(string fileName, T objectToSerialize)
         {
-            using (StreamWriter file = File.CreateText(fileName)) // remember to change path to something simpler, try using an @ sign before the string
+            StringBuilder newLine = new StringBuilder();
+            newLine = newLine.AppendLine();
+            StringBuilder fileText = new StringBuilder();
+            string json = JsonConvert.SerializeObject(objectToSerialize);
+
+            string[] elements = json.Split(',');
+
+            string text = string.Empty;
+
+            for (int i = 0; i < elements.Length; i++)
             {
-                JsonSerializer serializer = new JsonSerializer();
-                serializer.Serialize(file, objectToSerialize);
+                fileText = fileText.Append(elements[i]);
+                if (i != elements.Length - 1)
+                {
+                    fileText = fileText.AppendLine(",");
+                }
             }
+
+            fileText = fileText.Insert(1, newLine);
+            fileText = fileText.Insert(fileText.Length - 1, newLine);
+            text = fileText.ToString();
+            File.WriteAllText(fileName, text);
         }
         public static T DeserializeJson<T>(string fileName)
         {
-            using (StreamReader file = File.OpenText(fileName))
+            using (var file = File.OpenText(fileName))
             {
                 JsonSerializer serializer = new JsonSerializer();
                 return (T)serializer.Deserialize(file, typeof(T));
+            }
+        }
+
+        public static void SerializeProtobuf<T>(string filePath, T objectToSerialize)
+        {
+            using (var file = File.Create(filePath))
+            {
+                Serializer.Serialize(file, objectToSerialize);
+            }
+
+        }
+        public static T DeserializeProtobuf<T>(string filePath)
+        {
+            using (var file = File.OpenRead(filePath))
+            {
+                return Serializer.Deserialize<T>(file);
             }
         }
     }

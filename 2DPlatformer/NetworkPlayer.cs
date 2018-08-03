@@ -19,5 +19,13 @@ namespace ProjectPlatformer.Networking
             yPos = 0;
             playerIndex = 0;
         }
+
+        public NetworkPlayer Clone()
+        {
+            NetworkPlayer clone = new NetworkPlayer();
+            clone.xPos = xPos;
+            clone.yPos = yPos;
+            return clone;
+        }
     }
 }

@@ -24,8 +24,6 @@ namespace ProjectPlatformer.Networking
             x = 0;
             y = 0;
             block = new NetworkBlock();
-            block.Width = Cell.cellWidth;
-            block.Height = Cell.cellHeight;
         }
         public Cell ToCell()
         {

@@ -15,20 +15,15 @@ namespace ProjectPlatformer.Networking
     public class NetworkBlock
     {
         [ProtoMember(1)]
-        public int Width { get; set; } // will remove
-        [ProtoMember(2)]
-        public int Height { get; set; }
-        [ProtoMember(3)]
         public Block.BlockType type { get; set; }
 
         public NetworkBlock()
         {
-            Width = Cell.cellWidth;
-            Height = Cell.cellHeight;
+
         }
         public Block ToBlock()
         {
-            Block block = new Block(type, Width, Height);
+            Block block = new Block(type);
             return block;
         }
     }
