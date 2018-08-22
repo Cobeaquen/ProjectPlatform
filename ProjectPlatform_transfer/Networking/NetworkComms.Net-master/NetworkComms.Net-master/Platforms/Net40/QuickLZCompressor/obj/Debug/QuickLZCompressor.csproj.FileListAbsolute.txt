@@ -1,0 +1,11 @@
+D:\ProjectPlatform\Networking\NetworkComms.Net-master\NetworkComms.Net-master\Platforms\Net40\QuickLZCompressor\bin\Debug\QuickLZCompressor.dll
+D:\ProjectPlatform\Networking\NetworkComms.Net-master\NetworkComms.Net-master\Platforms\Net40\QuickLZCompressor\bin\Debug\QuickLZCompressor.pdb
+D:\ProjectPlatform\Networking\NetworkComms.Net-master\NetworkComms.Net-master\Platforms\Net40\QuickLZCompressor\bin\Debug\NetworkCommsDotNet.dll
+D:\ProjectPlatform\Networking\NetworkComms.Net-master\NetworkComms.Net-master\Platforms\Net40\QuickLZCompressor\bin\Debug\InTheHand.Net.Personal.dll
+D:\ProjectPlatform\Networking\NetworkComms.Net-master\NetworkComms.Net-master\Platforms\Net40\QuickLZCompressor\bin\Debug\NetworkCommsDotNet.pdb
+D:\ProjectPlatform\Networking\NetworkComms.Net-master\NetworkComms.Net-master\Platforms\Net40\QuickLZCompressor\bin\Debug\InTheHand.Net.Personal.xml
+D:\ProjectPlatform\Networking\NetworkComms.Net-master\NetworkComms.Net-master\Platforms\Net40\QuickLZCompressor\obj\Debug\QuickLZCompressor.csprojAssemblyReference.cache
+D:\ProjectPlatform\Networking\NetworkComms.Net-master\NetworkComms.Net-master\Platforms\Net40\QuickLZCompressor\obj\Debug\QuickLZCompressor.csproj.CoreCompileInputs.cache
+D:\ProjectPlatform\Networking\NetworkComms.Net-master\NetworkComms.Net-master\Platforms\Net40\QuickLZCompressor\obj\Debug\QuickLZCompressor.csproj.CopyComplete
+D:\ProjectPlatform\Networking\NetworkComms.Net-master\NetworkComms.Net-master\Platforms\Net40\QuickLZCompressor\obj\Debug\QuickLZCompressor.dll
+D:\ProjectPlatform\Networking\NetworkComms.Net-master\NetworkComms.Net-master\Platforms\Net40\QuickLZCompressor\obj\Debug\QuickLZCompressor.pdb

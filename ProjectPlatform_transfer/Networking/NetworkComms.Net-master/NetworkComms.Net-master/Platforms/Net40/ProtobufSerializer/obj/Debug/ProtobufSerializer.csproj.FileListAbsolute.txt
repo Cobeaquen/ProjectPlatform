@@ -1,0 +1,14 @@
+D:\ProjectPlatform\Networking\NetworkComms.Net-master\NetworkComms.Net-master\Platforms\Net40\ProtobufSerializer\bin\Debug\ProtobufSerializer.dll
+D:\ProjectPlatform\Networking\NetworkComms.Net-master\NetworkComms.Net-master\Platforms\Net40\ProtobufSerializer\bin\Debug\ProtobufSerializer.pdb
+D:\ProjectPlatform\Networking\NetworkComms.Net-master\NetworkComms.Net-master\Platforms\Net40\ProtobufSerializer\bin\Debug\NetworkCommsDotNet.dll
+D:\ProjectPlatform\Networking\NetworkComms.Net-master\NetworkComms.Net-master\Platforms\Net40\ProtobufSerializer\bin\Debug\protobuf-net.dll
+D:\ProjectPlatform\Networking\NetworkComms.Net-master\NetworkComms.Net-master\Platforms\Net40\ProtobufSerializer\bin\Debug\InTheHand.Net.Personal.dll
+D:\ProjectPlatform\Networking\NetworkComms.Net-master\NetworkComms.Net-master\Platforms\Net40\ProtobufSerializer\bin\Debug\NetworkCommsDotNet.pdb
+D:\ProjectPlatform\Networking\NetworkComms.Net-master\NetworkComms.Net-master\Platforms\Net40\ProtobufSerializer\bin\Debug\protobuf-net.pdb
+D:\ProjectPlatform\Networking\NetworkComms.Net-master\NetworkComms.Net-master\Platforms\Net40\ProtobufSerializer\bin\Debug\protobuf-net.xml
+D:\ProjectPlatform\Networking\NetworkComms.Net-master\NetworkComms.Net-master\Platforms\Net40\ProtobufSerializer\bin\Debug\InTheHand.Net.Personal.xml
+D:\ProjectPlatform\Networking\NetworkComms.Net-master\NetworkComms.Net-master\Platforms\Net40\ProtobufSerializer\obj\Debug\ProtobufSerializer.csprojAssemblyReference.cache
+D:\ProjectPlatform\Networking\NetworkComms.Net-master\NetworkComms.Net-master\Platforms\Net40\ProtobufSerializer\obj\Debug\ProtobufSerializer.csproj.CoreCompileInputs.cache
+D:\ProjectPlatform\Networking\NetworkComms.Net-master\NetworkComms.Net-master\Platforms\Net40\ProtobufSerializer\obj\Debug\ProtobufSerializer.csproj.CopyComplete
+D:\ProjectPlatform\Networking\NetworkComms.Net-master\NetworkComms.Net-master\Platforms\Net40\ProtobufSerializer\obj\Debug\ProtobufSerializer.dll
+D:\ProjectPlatform\Networking\NetworkComms.Net-master\NetworkComms.Net-master\Platforms\Net40\ProtobufSerializer\obj\Debug\ProtobufSerializer.pdb

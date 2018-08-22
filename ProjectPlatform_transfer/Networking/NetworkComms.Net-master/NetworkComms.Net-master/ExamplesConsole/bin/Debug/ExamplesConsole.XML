@@ -1,0 +1,438 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>ExamplesConsole</name>
+    </assembly>
+    <members>
+        <member name="T:Examples.ExamplesConsole.AdvancedSend">
+            <summary>
+            Advanced send demonstrates how to send and receive more complicated objects.  
+            Note that arrays of primitive types are serialised differently from arrays  
+            of non-primitives. This is done to achieve better performance and lower memory usage                                                                                                      
+            </summary>
+        </member>
+        <member name="M:Examples.ExamplesConsole.AdvancedSend.RunExample">
+            <summary>
+            Run the AdvancedSend example.
+            </summary>
+        </member>
+        <member name="M:Examples.ExamplesConsole.AdvancedSend.LogMethod(System.String)">
+            <summary>
+            Delegate which can be used to log comms method
+            </summary>
+            <param name="strToLog"></param>
+        </member>
+        <member name="M:Examples.ExamplesConsole.AdvancedSend.SelectDataSerializer(NetworkCommsDotNet.DPSBase.DataSerializer@)">
+            <summary>
+            Allows to choose different serializers
+            </summary>
+        </member>
+        <member name="M:Examples.ExamplesConsole.AdvancedSend.SelectDataProcessors(System.Collections.Generic.List{NetworkCommsDotNet.DPSBase.DataProcessor}@,System.Collections.Generic.Dictionary{System.String,System.String}@)">
+            <summary>
+            Allows to choose different compressors
+            </summary>
+        </member>
+        <member name="M:Examples.ExamplesConsole.AdvancedSend.CreateSendObject">
+            <summary>
+            Base method for creating an object to send
+            </summary>
+        </member>
+        <member name="M:Examples.ExamplesConsole.AdvancedSend.CreateArray">
+            <summary>
+            Set object to send as array of primitives
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Examples.ExamplesConsole.AdvancedSend.CreateCustomObject">
+            <summary>
+            Set object to send as custom object
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:Examples.ExamplesConsole.AdvancedSend.ProtobufCustomObject">
+            <summary>
+            Custom object used when using protobuf serialisation
+            </summary>
+        </member>
+        <member name="M:Examples.ExamplesConsole.AdvancedSend.ProtobufCustomObject.#ctor">
+            <summary>
+            Private constructor required for protobuf
+            </summary>
+        </member>
+        <member name="M:Examples.ExamplesConsole.AdvancedSend.ProtobufCustomObject.#ctor(System.Int32,System.String)">
+            <summary>
+            Constructor object for ProtobufCustomObject
+            </summary>
+            <param name="intValue"></param>
+            <param name="stringValue"></param>
+        </member>
+        <member name="T:Examples.ExamplesConsole.AdvancedSend.BinaryFormatterCustomObject">
+            <summary>
+            Custom object used when using binary formatter serialisation
+            </summary>
+        </member>
+        <member name="M:Examples.ExamplesConsole.AdvancedSend.BinaryFormatterCustomObject.#ctor(System.Int32,System.String)">
+            <summary>
+            Constructor object for BinaryFormatterCustomObject
+            </summary>
+            <param name="intValue"></param>
+            <param name="stringValue"></param>
+        </member>
+        <member name="T:Examples.ExamplesConsole.AdvancedSend.JSONSerializerCustomObject">
+            <summary>
+            Custom object used when using JSON serialisation
+            </summary>
+        </member>
+        <member name="M:Examples.ExamplesConsole.AdvancedSend.JSONSerializerCustomObject.#ctor(System.Int32,System.String)">
+            <summary>
+            Constructor object for BinaryFormatterCustomObject
+            </summary>
+            <param name="intValue"></param>
+            <param name="stringValue"></param>
+        </member>
+        <member name="T:Examples.ExamplesConsole.BasicSend">
+            <summary>
+            Networking in only 11 lines (not including comments and white space of course).
+            Note: This example deliberately includes no validation or exception handling in order to keep it as short as possible (i.e. it's easy to break).
+            </summary>
+        </member>
+        <member name="M:Examples.ExamplesConsole.BasicSend.RunExample">
+            <summary>
+            Run example
+            </summary>
+        </member>
+        <member name="T:Examples.ExamplesConsole.IntermediateSend">
+            <summary>
+            IntermediateSend demonstrates how to send and receive primitive objects (ints, strings etc).  
+            This example aims to bridge the gap between the relatively simple BasicSend and much more
+            extensive AdvancedSend
+            </summary>
+        </member>
+        <member name="M:Examples.ExamplesConsole.IntermediateSend.RunExample">
+            <summary>
+            Run example
+            </summary>
+        </member>
+        <member name="M:Examples.ExamplesConsole.IntermediateSend.HandleIncomingMessagePacket(NetworkCommsDotNet.PacketHeader,NetworkCommsDotNet.Connections.Connection,System.String)">
+            <summary>
+            The handler that we wish to execute when we receive a message packet.
+            </summary>
+            <param name="header">The associated packet header.</param>
+            <param name="connection">The connection used for the incoming packet</param>
+            <param name="incomingString">The incoming data converted to a string</param>
+        </member>
+        <member name="T:Examples.ExamplesConsole.NLogLogger">
+            <summary>
+            An example implementation of an external logging framework, in this case NLog.
+            Uses a simple configuration that logs to console (DEBUG log level and above) 
+            and to a file (All log Levels).
+            </summary>
+        </member>
+        <member name="M:Examples.ExamplesConsole.NLogLogger.#ctor">
+            <summary>
+            Initialise a new instance of the NLogLogger using a default configuration.
+            </summary>
+        </member>
+        <member name="M:Examples.ExamplesConsole.NLogLogger.Trace(System.String)">
+            <inheritdoc />
+        </member>
+        <member name="M:Examples.ExamplesConsole.NLogLogger.Debug(System.String)">
+            <inheritdoc />
+        </member>
+        <member name="M:Examples.ExamplesConsole.NLogLogger.Fatal(System.String)">
+            <inheritdoc />
+        </member>
+        <member name="M:Examples.ExamplesConsole.NLogLogger.Fatal(System.String,System.Exception)">
+            <inheritdoc />
+        </member>
+        <member name="M:Examples.ExamplesConsole.NLogLogger.Info(System.String)">
+            <inheritdoc />
+        </member>
+        <member name="M:Examples.ExamplesConsole.NLogLogger.Warn(System.String)">
+            <inheritdoc />
+        </member>
+        <member name="M:Examples.ExamplesConsole.NLogLogger.Error(System.String)">
+            <inheritdoc />
+        </member>
+        <member name="M:Examples.ExamplesConsole.NLogLogger.Shutdown">
+            <inheritdoc />
+        </member>
+        <member name="F:Examples.ExamplesConsole.PeerDiscoveryExample.locker">
+            <summary>
+            Static locker used to ensure we only write information to the console in a clear fashion
+            </summary>
+        </member>
+        <member name="M:Examples.ExamplesConsole.PeerDiscoveryExample.PeerDiscovered(NetworkCommsDotNet.Tools.ShortGuid,System.Collections.Generic.Dictionary{NetworkCommsDotNet.Connections.ConnectionType,System.Collections.Generic.List{System.Net.EndPoint}})">
+            <summary>
+            Execute this method when a peer is discovered 
+            </summary>
+            <param name="peerIdentifier">The network identifier of the discovered peer</param>
+            <param name="discoveredPeerEndPoints">The discoverable endpoints found for the provided peer</param>
+        </member>
+        <member name="T:Examples.ExamplesConsole.SpeedTest">
+            <summary>
+            Used for testing the performance of networks
+            </summary>
+        </member>
+        <member name="M:Examples.ExamplesConsole.SpeedTest.RunExample">
+            <summary>
+            Run example
+            </summary>
+        </member>
+        <member name="M:Examples.ExamplesConsole.DFSTest.RunExample">
+            <summary>
+            The distributed file system (DFS) allows for the high performance distribution of large files
+            within a cluster of peers. This sytem replicates the behaviour the bitTorrent protocol by using 
+            NetworkCommsDotNet. This example demonstrates the DFS in action.
+            </summary>
+        </member>
+        <member name="T:Examples.ExamplesConsole.ExampleHelper">
+            <summary>
+            Provides implementation shared across examples
+            </summary>
+        </member>
+        <member name="M:Examples.ExamplesConsole.ExampleHelper.GetServerDetails(NetworkCommsDotNet.Connections.ApplicationLayerProtocolStatus)">
+            <summary>
+            Request user to provide server details and returns the result as a <see cref="T:NetworkCommsDotNet.ConnectionInfo"/> object. Performs the necessary validation and prevents code duplication across examples.
+            </summary>
+            <param name="applicationLayerProtocol">If enabled NetworkComms.Net uses a custom 
+            application layer protocol to provide useful features such as inline serialisation, 
+            transparent packet transmission, remote peer handshake and information etc. We strongly 
+            recommend you enable the NetworkComms.Net application layer protocol.</param>
+        </member>
+        <member name="M:Examples.ExamplesConsole.Program.SetDebugTimeouts">
+            <summary>
+            Increase default timeouts so that we can easily step through code when running the examples in debug mode.
+            </summary>
+        </member>
+        <member name="T:Examples.ExamplesConsole.RPCExample">
+            <summary>
+            An example which demonstrates <see href="http://en.wikipedia.org/wiki/Remote_procedure_call">Remote Procedure Calls</see> using NetworkComms.Net
+            </summary>
+        </member>
+        <member name="M:Examples.ExamplesConsole.RPCExample.RunExample">
+            <summary>
+            Run the example
+            </summary>
+        </member>
+        <member name="T:Examples.ExamplesConsole.RPCExample.IMath">
+            <summary>
+            This is an interface known to both client and server
+            </summary>
+        </member>
+        <member name="M:Examples.ExamplesConsole.RPCExample.IMath.Multiply(System.Double,System.Double)">
+            <summary>
+            Multiply numbers together.
+            </summary>
+            <param name="a">Number a</param>
+            <param name="b">Number b</param>
+            <returns>Return a * b</returns>
+        </member>
+        <member name="M:Examples.ExamplesConsole.RPCExample.IMath.Add(System.Double,System.Double)">
+            <summary>
+            Add numbers together.
+            </summary>
+            <param name="a">Number a</param>
+            <param name="b">Number b</param>
+            <returns>Return a + b</returns>
+        </member>
+        <member name="M:Examples.ExamplesConsole.RPCExample.IMath.Subtract(System.Double,System.Double)">
+            <summary>
+            Subtract numbers.
+            </summary>
+            <param name="a">Number a</param>
+            <param name="b">Number b</param>
+            <returns>Return a - b</returns>
+        </member>
+        <member name="M:Examples.ExamplesConsole.RPCExample.IMath.Divide(System.Double,System.Double)">
+            <summary>
+            Divide numbers.
+            </summary>
+            <param name="a">Number a</param>
+            <param name="b">Number b</param>
+            <returns>Return a / b</returns>
+        </member>
+        <member name="M:Examples.ExamplesConsole.RPCExample.IMath.Echo(System.String)">
+            <summary>
+            A non math method. Which just returns the provided input
+            </summary>
+            <param name="input">The input to return</param>
+            <returns>Returns the input</returns>
+        </member>
+        <member name="M:Examples.ExamplesConsole.RPCExample.IMath.ThrowTestException">
+            <summary>
+            Perform an operation which throws an exception
+            </summary>
+        </member>
+        <member name="M:Examples.ExamplesConsole.RPCExample.IMath.GetServerObjectCopy">
+            <summary>
+            Get a copy of the server IMath object
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:Examples.ExamplesConsole.RPCExample.IMath.Item(System.Int32)">
+            <summary>
+            Access something using an <see href="http://msdn.microsoft.com/en-us/library/aa288465(v=vs.71).aspx">indexer</see>.
+            </summary>
+            <param name="index"></param>
+            <returns></returns>
+        </member>
+        <member name="P:Examples.ExamplesConsole.RPCExample.IMath.LastResult">
+            <summary>
+            Get the last result.
+            </summary>
+        </member>
+        <member name="E:Examples.ExamplesConsole.RPCExample.IMath.EchoEvent">
+            <summary>
+            Event that pushes a message to clients
+            </summary>
+        </member>
+        <member name="M:Examples.ExamplesConsole.RPCExample.IMath.TriggerEchoEventAfterDelay(System.Int32,System.String)">
+            <summary>
+            Method echos a string after a given timeout, using RPC events
+            </summary>
+            <param name="timeout">The time to wait before sending back the echo in ms</param>
+            <param name="toEcho">The string to echo</param>
+        </member>
+        <member name="T:Examples.ExamplesConsole.RPCExample.MathEventArgs">
+            <summary>
+            Event args to demonstrate the use of events in RPC
+            </summary>
+        </member>
+        <member name="P:Examples.ExamplesConsole.RPCExample.MathEventArgs.EchoValue">
+            <summary>
+            A string representing the message to be sent
+            </summary>
+        </member>
+        <member name="M:Examples.ExamplesConsole.RPCExample.MathEventArgs.#ctor(System.String)">
+            <summary>
+            Creates a new MathEventArgs object with a provided message
+            </summary>
+            <param name="toEcho">The message to echo</param>
+        </member>
+        <member name="T:Examples.ExamplesConsole.RPCExample.IRPCExampleInstance">
+            <summary>
+            An interface which can be used for the different server and client side implementations of the example
+            </summary>
+        </member>
+        <member name="M:Examples.ExamplesConsole.RPCExample.IRPCExampleInstance.Run">
+            <summary>
+            Run the example
+            </summary>
+        </member>
+        <member name="T:Examples.ExamplesConsole.RPCExample.ServerExampleInstance">
+            <summary>
+            We are going to isolate the server and client example to demonstrate that the client never has to see 
+            the implementation used for IMath
+            </summary>
+        </member>
+        <member name="M:Examples.ExamplesConsole.RPCExample.ServerExampleInstance.#ctor">
+            <summary>
+            Create an instance of ServerExampleInstance
+            </summary>
+        </member>
+        <member name="M:Examples.ExamplesConsole.RPCExample.ServerExampleInstance.Run">
+            <summary>
+            Run the example
+            </summary>
+        </member>
+        <member name="M:Examples.ExamplesConsole.RPCExample.ServerExampleInstance.SetupRPCUsage">
+            <summary>
+            Configures the server side RPC features depending on desired usage mode
+            </summary>
+        </member>
+        <member name="T:Examples.ExamplesConsole.RPCExample.ClientExampleInstance">
+            <summary>
+             We are going to isolate the server and client example to demonstrate that the client never has to see 
+             the implementation used for IMath
+            </summary>
+        </member>
+        <member name="M:Examples.ExamplesConsole.RPCExample.ClientExampleInstance.#ctor">
+            <summary>
+            Create an instance of ClientExampleInstance
+            </summary>
+        </member>
+        <member name="M:Examples.ExamplesConsole.RPCExample.ClientExampleInstance.Run">
+            <summary>
+            Run the example
+            </summary>
+        </member>
+        <member name="M:Examples.ExamplesConsole.RPCExample.ClientExampleInstance.SelectRemoteObject(NetworkCommsDotNet.Connections.Connection,System.String@)">
+             <summary>
+             Allows the user to select a remote object based on the different available access methods
+             </summary>
+            <param name="connection">The connection over which to perform remote procedure calls</param>
+             <param name="instanceId">The instanceId of the linked object</param>
+             <returns>The remote RPC object</returns>
+        </member>
+        <member name="T:Examples.ExamplesConsole.SSLExample">
+            <summary>
+            Example which demonstrates the ability to establish SSL encrypted TCP connections
+            </summary>
+        </member>
+        <member name="F:Examples.ExamplesConsole.SSLExample.certificate">
+            <summary>
+            A suitable certificate to use for the example
+            </summary>
+        </member>
+        <member name="F:Examples.ExamplesConsole.SSLExample.listenerSSLOptions">
+            <summary>
+            SSLOptions which will be used for incoming connections
+            </summary>
+        </member>
+        <member name="F:Examples.ExamplesConsole.SSLExample.connectionSSLOptions">
+            <summary>
+            SSLOptions which will be used for outgoing connections
+            </summary>
+        </member>
+        <member name="F:Examples.ExamplesConsole.SSLExample.sendingSendReceiveOptions">
+            <summary>
+            The SendReceiveOptions used for sending
+            </summary>
+        </member>
+        <member name="M:Examples.ExamplesConsole.SSLExample.RunExample">
+            <summary>
+            Run example
+            </summary>
+        </member>
+        <member name="M:Examples.ExamplesConsole.SSLExample.SelectSSLOptions">
+            <summary>
+            Select the SSL options
+            </summary>
+        </member>
+        <member name="T:Examples.ExamplesConsole.UnmanagedConnectionExample">
+            <summary>
+            Advanced test demonstrates how to send and receive more complicated objects.  
+            Note that arrays of primitive types are serialised differently from arrays  
+            of non-primitives. This is done to achieve better performance and lower memory usage                                                                                                      
+            </summary>
+        </member>
+        <member name="F:Examples.ExamplesConsole.UnmanagedConnectionExample.byteDataToSend">
+            <summary>
+            The array that will be sent
+            </summary>
+        </member>
+        <member name="F:Examples.ExamplesConsole.UnmanagedConnectionExample.connectionTypeToUse">
+            <summary>
+            The connection type to use
+            </summary>
+        </member>
+        <member name="M:Examples.ExamplesConsole.UnmanagedConnectionExample.RunExample">
+            <summary>
+            Run the AdvancedSend example.
+            </summary>
+        </member>
+        <member name="M:Examples.ExamplesConsole.UnmanagedConnectionExample.LogMethod(System.String)">
+            <summary>
+            Delegate which can be used to log comms method
+            </summary>
+            <param name="strToLog"></param>
+        </member>
+        <member name="M:Examples.ExamplesConsole.UnmanagedConnectionExample.CreateSendArray">
+            <summary>
+            Set object to send as array of primitives
+            </summary>
+            <returns></returns>
+        </member>
+    </members>
+</doc>

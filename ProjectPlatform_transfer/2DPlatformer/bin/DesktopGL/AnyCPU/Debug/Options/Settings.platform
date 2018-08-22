@@ -1,0 +1,8 @@
+{
+"multiplayer":true,
+"resolutionWidth":1200,
+"resolutionHeight":700,
+"isBorderless":false,
+"vsync":true,
+"EditorMode":false
+}

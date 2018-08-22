@@ -1,0 +1,131 @@
+02:31:19:572 [1 - Info] - NetworkComms.Net logging enabled.
+02:33:17:827 [1 - Info] - Added incoming packetHandler for 'IMath-NEW-INSTANCE-RPC-CONNECTION' packetType.
+02:33:17:863 [1 - Info] - Created new connection listener (TCP-E).
+02:33:17:863 [1 - Info] - Created new connection listener (TCP-E).
+02:33:17:872 [1 - Info] - Created new connection listener (TCP-E).
+02:33:17:872 [1 - Info] - Created new connection listener (TCP-E).
+02:33:17:872 [1 - Info] - Created new connection listener (TCP-E).
+02:33:17:872 [1 - Info] - Created new connection listener (TCP-E).
+02:33:17:888 [1 - Info] - Created new connection listener (TCP-E).
+02:33:17:888 [1 - Info] - Listener started (TCP-E - [2620:9b::1958:a5f4]:52193).
+02:33:17:904 [1 - Info] - Listener started (TCP-E - 25.88.165.244:52194).
+02:33:17:904 [1 - Info] - Listener started (TCP-E - [2002:6441:2799:0:74ff:3bd8:33a7:cfcf]:52195).
+02:33:17:904 [1 - Info] - Listener started (TCP-E - [2002:6441:2799:0:5c6c:8370:332a:444]:52196).
+02:33:17:919 [1 - Info] - Listener started (TCP-E - 192.168.1.150:52197).
+02:33:17:919 [1 - Info] - Listener started (TCP-E - [::1]:52198).
+02:33:17:919 [1 - Info] - Listener started (TCP-E - 127.0.0.1:52199).
+02:33:32:299 [10 - Info] - New incoming TCP connection from [TCP-E-U] 192.168.1.150:52197 -> 192.168.1.150:52200
+02:33:32:317 [12 - Trace] - RetrieveConnection by remoteEndPoint='192.168.1.150:52200', localEndPoint='192.168.1.150:52197', connectionType='TCP' and ApplicationLayerProtocolStatus='Enabled'. No matching connections found.
+02:33:32:317 [12 - Trace] - Creating new TCPConnection to connectionInfo='[TCP-E-U] 192.168.1.150:52197 -> 192.168.1.150:52200'. Connection will be established.
+02:33:32:327 [12 - Info] - Appended connection specific packet handlers from listener '[TCP-E] Listening - 192.168.1.150:52197' to connection '[TCP-E-U] 192.168.1.150:52197 -> 192.168.1.150:52200'.
+02:33:32:327 [12 - Trace] - Checking for existing connection by remoteEndPoint='192.168.1.150:52200', localEndPoint='192.168.1.150:52197', connectionType='TCP' and ApplicationLayerProtocolStatus='Enabled'.
+02:33:32:344 [12 - Trace] - RetrieveConnection by remoteEndPoint='192.168.1.150:52200', localEndPoint='192.168.1.150:52197', connectionType='TCP' and ApplicationLayerProtocolStatus='Enabled'. No matching connections found.
+02:33:32:344 [12 - Trace] - Adding connection reference by endPoint. Connection='[TCP-E-U] 192.168.1.150:52197 -> 192.168.1.150:52200'.
+02:33:32:357 [12 - Trace] - RetrieveConnection by remoteEndPoint='192.168.1.150:52200', localEndPoint='192.168.1.150:52197', connectionType='TCP' and ApplicationLayerProtocolStatus='Undefined'. No matching connections found.
+02:33:32:357 [12 - Trace] - RetrieveConnection by remoteEndPoint='192.168.1.150:52200', localEndPoint='192.168.1.150:52197', connectionType='TCP' and ApplicationLayerProtocolStatus='Undefined'. No matching connections found.
+02:33:32:357 [12 - Trace] - Completed adding connection reference by endPoint. Connection='[TCP-E-U] 192.168.1.150:52197 -> 192.168.1.150:52200'.
+02:33:32:357 [12 - Trace] - Establishing new connection with [TCP-E-I] 192.168.1.150:52197 -> 192.168.1.150:52200
+02:33:32:375 [12 - Trace] - Updating connection reference by endPoint. Connection='[TCP-E-I] 192.168.1.150:52197 -> 192.168.1.150:52200'. Provided newRemoteEndPoint of 192.168.1.150:52200. Provided newLocalEndPoint of 192.168.1.150:52197.
+02:33:32:375 [12 - Trace] - Checking for existing connection by remoteEndPoint='192.168.1.150:52200', localEndPoint='192.168.1.150:52197', connectionType='TCP' and ApplicationLayerProtocolStatus='Enabled'.
+02:33:32:375 [12 - Trace] - RetrieveConnection by remoteEndPoint='192.168.1.150:52200', localEndPoint='192.168.1.150:52197', connectionType='TCP' and ApplicationLayerProtocolStatus='Enabled'. 1 matching connections found.
+02:33:32:392 [12 - Trace] - Listening for incoming data from [TCP-E-I] 192.168.1.150:52197 -> 192.168.1.150:52200
+02:33:32:392 [10 - Trace] -  ... 124 bytes added to packetBuilder for [TCP-E-I] 192.168.1.150:52197 -> 192.168.1.150:52200. Cached 0 bytes, expecting 0 bytes.
+02:33:32:392 [12 - Debug] - Waiting for client connnectionInfo from [TCP-E-I] 192.168.1.150:52197 -> 192.168.1.150:52200
+02:33:32:392 [10 - Trace] -  ... added 124 bytes to packetBuilder.
+02:33:32:406 [10 - Trace] -  ... checking for completed packet with 124 bytes read.
+02:33:32:419 [10 - Trace] -      ... deserializing header using 68 bytes, 124 bytes cached.
+02:33:32:446 [10 - Debug] - Received packet of type 'ConnectionSetup' from [TCP-E-I] 192.168.1.150:52197 -> 192.168.1.150:52200, containing 68 header bytes and 56 payload bytes.
+02:33:32:451 [10 - Trace] -  ... handling packet type 'ConnectionSetup' inline. Loop index - 0. pSeq#-1.
+02:33:32:451 [10 - Trace] - Handling a ConnectionSetup packet from [TCP-E-I] 192.168.1.150:52197 -> 192.168.1.150:52200 with a priority of AboveNormal.
+02:33:32:469 [10 - Trace] - RetrieveConnection by remoteEndPoint='192.168.1.150:52200', localEndPoint='192.168.1.150:52197', connectionType='TCP' and ApplicationLayerProtocolStatus='Enabled'. 1 matching connections found.
+02:33:32:469 [10 - Trace] - Updating connection reference by endPoint. Connection='[TCP-E-I] 192.168.1.150:52197 -> 192.168.1.150:52200'. Provided newRemoteEndPoint of 192.168.1.150:52200. Provided newLocalEndPoint of 192.168.1.150:52197.
+02:33:32:487 [10 - Trace] -  ... created packet of type ConnectionSetup. PacketObject data size is 56 bytes
+02:33:32:487 [10 - Trace] - Entering packet send of 'ConnectionSetup' packetType to [TCP-E-I] 192.168.1.150:52197 -> 192.168.1.150:52200 (aYk1NHlQAkKtUmd_d-h2_w)
+02:33:32:500 [10 - Debug] - Sending a packet of type 'ConnectionSetup' to [TCP-E-I] 192.168.1.150:52197 -> 192.168.1.150:52200 (aYk1NHlQAkKtUmd_d-h2_w) containing 68 header bytes and 56 payload bytes. Allowing 1000,0 ms/KB for send.
+02:33:32:514 [10 - Trace] -  ... 0,121KB sent at average of 24,217KB/s. Current:7,53 ms/KB, Connection Avg:8,26 ms/KB.
+02:33:32:514 [10 - Trace] - Completed packet send of 'ConnectionSetup' packetType to [TCP-E-I] 192.168.1.150:52197 -> 192.168.1.150:52200 (aYk1NHlQAkKtUmd_d-h2_w)
+02:33:32:514 [10 - Trace] - Triggering handlers for packet of type 'ConnectionSetup' from [TCP-E-I] 192.168.1.150:52197 -> 192.168.1.150:52200 (aYk1NHlQAkKtUmd_d-h2_w)
+02:33:32:514 [12 - Trace] - Adding connection reference by identifier. Connection=[TCP-E-E] 192.168.1.150:52197 -> 192.168.1.150:52200 (aYk1NHlQAkKtUmd_d-h2_w).
+02:33:32:528 [12 - Trace] - Checking for existing connection by remoteEndPoint='192.168.1.150:52200', localEndPoint='192.168.1.150:52197', connectionType='TCP' and ApplicationLayerProtocolStatus='Enabled'.
+02:33:32:528 [10 - Trace] - Removing 124 bytes from incoming packet builder from connection with [TCP-E-E] 192.168.1.150:52197 -> 192.168.1.150:52200 (aYk1NHlQAkKtUmd_d-h2_w).
+02:33:32:528 [12 - Trace] - RetrieveConnection by remoteEndPoint='192.168.1.150:52200', localEndPoint='192.168.1.150:52197', connectionType='TCP' and ApplicationLayerProtocolStatus='Enabled'. 1 matching connections found.
+02:33:32:544 [10 - Trace] -  ... removed 124 bytes from packetBuilder.
+02:33:32:544 [12 - Trace] -  ... connection successfully established with [TCP-E-E] 192.168.1.150:52197 -> 192.168.1.150:52200 (aYk1NHlQAkKtUmd_d-h2_w)
+02:33:32:544 [17 - Debug] - Connection keep alive polling thread has started.
+02:33:48:998 [10 - Trace] -  ... 136 bytes added to packetBuilder for [TCP-E-E] 192.168.1.150:52197 -> 192.168.1.150:52200 (aYk1NHlQAkKtUmd_d-h2_w). Cached 0 bytes, expecting 0 bytes.
+02:33:48:998 [10 - Trace] -  ... added 136 bytes to packetBuilder.
+02:33:48:998 [10 - Trace] -  ... checking for completed packet with 136 bytes read.
+02:33:48:998 [10 - Trace] -      ... deserializing header using 136 bytes, 136 bytes cached.
+02:33:49:015 [10 - Trace] -      ... more data required for complete packet payload. Expecting 141 total packet bytes.
+02:33:49:015 [10 - Trace] -  ... reusing byte[512] from packetBuilder which contains 136 existing bytes.
+02:33:49:015 [14 - Trace] -  ... 141 bytes added to packetBuilder for [TCP-E-E] 192.168.1.150:52197 -> 192.168.1.150:52200 (aYk1NHlQAkKtUmd_d-h2_w). Cached 0 bytes, expecting 141 bytes.
+02:33:49:030 [14 - Trace] -  ... added 141 bytes to packetBuilder.
+02:33:49:030 [14 - Trace] -  ... checking for completed packet with 141 bytes read.
+02:33:49:030 [14 - Trace] -      ... deserializing header using 136 bytes, 141 bytes cached.
+02:33:49:045 [14 - Debug] - Received packet of type 'IMath-NEW-INSTANCE-RPC-CONNECTION' from [TCP-E-E] 192.168.1.150:52197 -> 192.168.1.150:52200 (aYk1NHlQAkKtUmd_d-h2_w), containing 136 header bytes and 5 payload bytes.
+02:33:49:045 [19 - Trace] - Handling a IMath-NEW-INSTANCE-RPC-CONNECTION packet from [TCP-E-E] 192.168.1.150:52197 -> 192.168.1.150:52200 (aYk1NHlQAkKtUmd_d-h2_w) with a priority of Normal.
+02:33:49:045 [14 - Trace] -  ... added completed IMath-NEW-INSTANCE-RPC-CONNECTION packet to thread pool (Q:0, T:1, I:0) with priority Normal. Selected threadId=19. Loop index=0. pSeq#-2.
+02:33:49:045 [19 - Trace] - Triggering handlers for packet of type 'IMath-NEW-INSTANCE-RPC-CONNECTION' from [TCP-E-E] 192.168.1.150:52197 -> 192.168.1.150:52200 (aYk1NHlQAkKtUmd_d-h2_w)
+02:33:49:061 [14 - Trace] - Removing 141 bytes from incoming packet builder from connection with [TCP-E-E] 192.168.1.150:52197 -> 192.168.1.150:52200 (aYk1NHlQAkKtUmd_d-h2_w).
+02:33:49:061 [14 - Trace] -  ... removed 141 bytes from packetBuilder.
+02:33:49:089 [19 - Trace] -  ... passing completed data packet of type 'IMath-NEW-INSTANCE-RPC-CONNECTION' to 1 selected global handlers.
+02:33:49:094 [19 - Info] - Added connection specific incoming packetHandler for 'IMath-RPC-CALL-vtq1LT/NyUs4DtggdJ5KvrQAMgU=' packetType with [TCP-E-E] 192.168.1.150:52197 -> 192.168.1.150:52200 (aYk1NHlQAkKtUmd_d-h2_w)
+02:33:49:110 [19 - Info] - Added connection specific incoming packetHandler for 'IMath-REMOVE-REFERENCE-vtq1LT/NyUs4DtggdJ5KvrQAMgU=' packetType with [TCP-E-E] 192.168.1.150:52197 -> 192.168.1.150:52200 (aYk1NHlQAkKtUmd_d-h2_w)
+02:33:49:110 [19 - Debug] - Added a connection specific shutdown delegate to connection with [TCP-E-E] 192.168.1.150:52197 -> 192.168.1.150:52200 (aYk1NHlQAkKtUmd_d-h2_w)
+02:33:49:110 [19 - Info] - Added incoming packetHandler for 'IMath-NEW-RPC-CONNECTION-BY-ID' packetType.
+02:33:49:124 [19 - Trace] -  ... created packet of type IMath-NEW-INSTANCE-RPC-CONNECTION-RESPONSE. PacketObject data size is 30 bytes
+02:33:49:124 [19 - Trace] - Entering packet send of 'IMath-NEW-INSTANCE-RPC-CONNECTION-RESPONSE' packetType to [TCP-E-E] 192.168.1.150:52197 -> 192.168.1.150:52200 (aYk1NHlQAkKtUmd_d-h2_w)
+02:33:49:140 [19 - Debug] - Sending a packet of type 'IMath-NEW-INSTANCE-RPC-CONNECTION-RESPONSE' to [TCP-E-E] 192.168.1.150:52197 -> 192.168.1.150:52200 (aYk1NHlQAkKtUmd_d-h2_w) containing 95 header bytes and 30 payload bytes. Allowing 1000,0 ms/KB for send.
+02:33:49:140 [19 - Trace] -  ... 0,122KB sent at average of 123,216KB/s. Current:0,00 ms/KB, Connection Avg:4,11 ms/KB.
+02:33:49:140 [19 - Trace] - Completed packet send of 'IMath-NEW-INSTANCE-RPC-CONNECTION-RESPONSE' packetType to [TCP-E-E] 192.168.1.150:52197 -> 192.168.1.150:52200 (aYk1NHlQAkKtUmd_d-h2_w)
+02:33:49:155 [19 - Trace] -  ... all handlers for packet of type 'IMath-NEW-INSTANCE-RPC-CONNECTION' completed.
+02:34:02:594 [17 - Trace] - Starting AllConnectionsSendNullPacketKeepAlive
+02:34:02:594 [17 - Trace] - RetrieveConnection by remoteEndPoint='0.0.0.0:0', localEndPoint='0.0.0.0:0', connectionType='Undefined' and ApplicationLayerProtocolStatus='Enabled'. 1 matching connections found.
+02:34:18:914 [14 - Trace] -  ... 170 bytes added to packetBuilder for [TCP-E-E] 192.168.1.150:52197 -> 192.168.1.150:52200 (aYk1NHlQAkKtUmd_d-h2_w). Cached 0 bytes, expecting 0 bytes.
+02:34:18:919 [14 - Trace] -  ... added 170 bytes to packetBuilder.
+02:34:18:919 [14 - Trace] -  ... checking for completed packet with 170 bytes read.
+02:34:18:919 [14 - Trace] -      ... deserializing header using 170 bytes, 170 bytes cached.
+02:34:18:919 [14 - Trace] -      ... more data required for complete packet payload. Expecting 221 total packet bytes.
+02:34:18:936 [14 - Trace] -  ... reusing byte[512] from packetBuilder which contains 170 existing bytes.
+02:34:18:936 [15 - Trace] -  ... 221 bytes added to packetBuilder for [TCP-E-E] 192.168.1.150:52197 -> 192.168.1.150:52200 (aYk1NHlQAkKtUmd_d-h2_w). Cached 0 bytes, expecting 221 bytes.
+02:34:18:936 [15 - Trace] -  ... added 221 bytes to packetBuilder.
+02:34:18:952 [15 - Trace] -  ... checking for completed packet with 221 bytes read.
+02:34:18:952 [15 - Trace] -      ... deserializing header using 170 bytes, 221 bytes cached.
+02:34:18:952 [15 - Debug] - Received packet of type 'IMath-RPC-CALL-vtq1LT/NyUs4DtggdJ5KvrQAMgU=' from [TCP-E-E] 192.168.1.150:52197 -> 192.168.1.150:52200 (aYk1NHlQAkKtUmd_d-h2_w), containing 170 header bytes and 51 payload bytes.
+02:34:18:967 [15 - Trace] -  ... added completed IMath-RPC-CALL-vtq1LT/NyUs4DtggdJ5KvrQAMgU= packet to thread pool (Q:1, T:1, I:0) with priority Normal. Selected threadId=19. Loop index=0. pSeq#-3.
+02:34:18:967 [19 - Trace] - Handling a IMath-RPC-CALL-vtq1LT/NyUs4DtggdJ5KvrQAMgU= packet from [TCP-E-E] 192.168.1.150:52197 -> 192.168.1.150:52200 (aYk1NHlQAkKtUmd_d-h2_w) with a priority of Normal.
+02:34:18:967 [15 - Trace] - Removing 221 bytes from incoming packet builder from connection with [TCP-E-E] 192.168.1.150:52197 -> 192.168.1.150:52200 (aYk1NHlQAkKtUmd_d-h2_w).
+02:34:18:967 [19 - Trace] - Triggering handlers for packet of type 'IMath-RPC-CALL-vtq1LT/NyUs4DtggdJ5KvrQAMgU=' from [TCP-E-E] 192.168.1.150:52197 -> 192.168.1.150:52200 (aYk1NHlQAkKtUmd_d-h2_w)
+02:34:18:967 [15 - Trace] -  ... removed 221 bytes from packetBuilder.
+02:34:19:062 [19 - Trace] -  ... passing completed data packet to selected connection specific handlers.
+02:34:19:090 [19 - Trace] -  ... created packet of type IMath-RPC-CALL-vtq1LT/NyUs4DtggdJ5KvrQAMgU=-r9RRDpXpNkCrJiBPq_WcBA. PacketObject data size is 329 bytes
+02:34:19:096 [19 - Trace] - Entering packet send of 'IMath-RPC-CALL-vtq1LT/NyUs4DtggdJ5KvrQAMgU=-r9RRDpXpNkCrJiBPq_WcBA' packetType to [TCP-E-E] 192.168.1.150:52197 -> 192.168.1.150:52200 (aYk1NHlQAkKtUmd_d-h2_w)
+02:34:19:096 [19 - Debug] - Sending a packet of type 'IMath-RPC-CALL-vtq1LT/NyUs4DtggdJ5KvrQAMgU=-r9RRDpXpNkCrJiBPq_WcBA' to [TCP-E-E] 192.168.1.150:52197 -> 192.168.1.150:52200 (aYk1NHlQAkKtUmd_d-h2_w) containing 119 header bytes and 329 payload bytes. Allowing 1000,0 ms/KB for send.
+02:34:19:108 [19 - Trace] -  ... 0,438KB sent at average of 437,631KB/s. Current:0,00 ms/KB, Connection Avg:1,47 ms/KB.
+02:34:19:108 [19 - Trace] - Completed packet send of 'IMath-RPC-CALL-vtq1LT/NyUs4DtggdJ5KvrQAMgU=-r9RRDpXpNkCrJiBPq_WcBA' packetType to [TCP-E-E] 192.168.1.150:52197 -> 192.168.1.150:52200 (aYk1NHlQAkKtUmd_d-h2_w)
+02:34:32:636 [17 - Trace] - Starting AllConnectionsSendNullPacketKeepAlive
+02:34:32:640 [17 - Trace] - RetrieveConnection by remoteEndPoint='0.0.0.0:0', localEndPoint='0.0.0.0:0', connectionType='Undefined' and ApplicationLayerProtocolStatus='Enabled'. 1 matching connections found.
+02:34:39:554 [15 - Trace] -  ... 170 bytes added to packetBuilder for [TCP-E-E] 192.168.1.150:52197 -> 192.168.1.150:52200 (aYk1NHlQAkKtUmd_d-h2_w). Cached 0 bytes, expecting 0 bytes.
+02:34:39:554 [15 - Trace] -  ... added 170 bytes to packetBuilder.
+02:34:39:563 [15 - Trace] -  ... checking for completed packet with 170 bytes read.
+02:34:39:563 [15 - Trace] -      ... deserializing header using 170 bytes, 170 bytes cached.
+02:34:39:563 [15 - Trace] -      ... more data required for complete packet payload. Expecting 459 total packet bytes.
+02:34:39:576 [15 - Trace] -  ... reusing byte[512] from packetBuilder which contains 170 existing bytes.
+02:34:39:576 [10 - Trace] -  ... 459 bytes added to packetBuilder for [TCP-E-E] 192.168.1.150:52197 -> 192.168.1.150:52200 (aYk1NHlQAkKtUmd_d-h2_w). Cached 0 bytes, expecting 459 bytes.
+02:34:39:576 [10 - Trace] -  ... added 459 bytes to packetBuilder.
+02:34:39:591 [10 - Trace] -  ... checking for completed packet with 459 bytes read.
+02:34:39:591 [10 - Trace] -      ... deserializing header using 170 bytes, 459 bytes cached.
+02:34:39:591 [10 - Debug] - Received packet of type 'IMath-RPC-CALL-vtq1LT/NyUs4DtggdJ5KvrQAMgU=' from [TCP-E-E] 192.168.1.150:52197 -> 192.168.1.150:52200 (aYk1NHlQAkKtUmd_d-h2_w), containing 170 header bytes and 289 payload bytes.
+02:34:39:591 [10 - Trace] -  ... added completed IMath-RPC-CALL-vtq1LT/NyUs4DtggdJ5KvrQAMgU= packet to thread pool (Q:1, T:1, I:0) with priority Normal. Selected threadId=19. Loop index=0. pSeq#-4.
+02:34:39:591 [19 - Trace] - Handling a IMath-RPC-CALL-vtq1LT/NyUs4DtggdJ5KvrQAMgU= packet from [TCP-E-E] 192.168.1.150:52197 -> 192.168.1.150:52200 (aYk1NHlQAkKtUmd_d-h2_w) with a priority of Normal.
+02:34:39:611 [10 - Trace] - Removing 459 bytes from incoming packet builder from connection with [TCP-E-E] 192.168.1.150:52197 -> 192.168.1.150:52200 (aYk1NHlQAkKtUmd_d-h2_w).
+02:34:39:611 [19 - Trace] - Triggering handlers for packet of type 'IMath-RPC-CALL-vtq1LT/NyUs4DtggdJ5KvrQAMgU=' from [TCP-E-E] 192.168.1.150:52197 -> 192.168.1.150:52200 (aYk1NHlQAkKtUmd_d-h2_w)
+02:34:39:611 [10 - Trace] -  ... removed 459 bytes from packetBuilder.
+02:34:39:625 [19 - Trace] -  ... passing completed data packet to selected connection specific handlers.
+02:34:39:639 [19 - Trace] -  ... created packet of type IMath-RPC-CALL-vtq1LT/NyUs4DtggdJ5KvrQAMgU=-Lbl0gPlMPUGRTO4OVEbJjw. PacketObject data size is 304 bytes
+02:34:39:639 [19 - Trace] - Entering packet send of 'IMath-RPC-CALL-vtq1LT/NyUs4DtggdJ5KvrQAMgU=-Lbl0gPlMPUGRTO4OVEbJjw' packetType to [TCP-E-E] 192.168.1.150:52197 -> 192.168.1.150:52200 (aYk1NHlQAkKtUmd_d-h2_w)
+02:34:39:639 [19 - Debug] - Sending a packet of type 'IMath-RPC-CALL-vtq1LT/NyUs4DtggdJ5KvrQAMgU=-Lbl0gPlMPUGRTO4OVEbJjw' to [TCP-E-E] 192.168.1.150:52197 -> 192.168.1.150:52200 (aYk1NHlQAkKtUmd_d-h2_w) containing 119 header bytes and 304 payload bytes. Allowing 20,0 ms/KB for send.
+02:34:39:654 [19 - Trace] -  ... 0,413KB sent at average of 414,080KB/s. Current:0,00 ms/KB, Connection Avg:0,91 ms/KB.
+02:34:39:654 [19 - Trace] - Completed packet send of 'IMath-RPC-CALL-vtq1LT/NyUs4DtggdJ5KvrQAMgU=-Lbl0gPlMPUGRTO4OVEbJjw' packetType to [TCP-E-E] 192.168.1.150:52197 -> 192.168.1.150:52200 (aYk1NHlQAkKtUmd_d-h2_w)
+02:35:02:675 [17 - Trace] - Starting AllConnectionsSendNullPacketKeepAlive
+02:35:02:675 [17 - Trace] - RetrieveConnection by remoteEndPoint='0.0.0.0:0', localEndPoint='0.0.0.0:0', connectionType='Undefined' and ApplicationLayerProtocolStatus='Enabled'. 1 matching connections found.

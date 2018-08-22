@@ -1,0 +1,17 @@
+D:\ProjectPlatform\Networking\NetworkComms.Net-master\NetworkComms.Net-master\DistributedFileSystem\bin\Debug\DistributedFileSystem.XML
+D:\ProjectPlatform\Networking\NetworkComms.Net-master\NetworkComms.Net-master\DistributedFileSystem\bin\Debug\DistributedFileSystem.dll
+D:\ProjectPlatform\Networking\NetworkComms.Net-master\NetworkComms.Net-master\DistributedFileSystem\bin\Debug\DistributedFileSystem.pdb
+D:\ProjectPlatform\Networking\NetworkComms.Net-master\NetworkComms.Net-master\DistributedFileSystem\bin\Debug\NetworkCommsDotNet.dll
+D:\ProjectPlatform\Networking\NetworkComms.Net-master\NetworkComms.Net-master\DistributedFileSystem\bin\Debug\protobuf-net.dll
+D:\ProjectPlatform\Networking\NetworkComms.Net-master\NetworkComms.Net-master\DistributedFileSystem\bin\Debug\ProtobufSerializer.dll
+D:\ProjectPlatform\Networking\NetworkComms.Net-master\NetworkComms.Net-master\DistributedFileSystem\bin\Debug\InTheHand.Net.Personal.dll
+D:\ProjectPlatform\Networking\NetworkComms.Net-master\NetworkComms.Net-master\DistributedFileSystem\bin\Debug\NetworkCommsDotNet.pdb
+D:\ProjectPlatform\Networking\NetworkComms.Net-master\NetworkComms.Net-master\DistributedFileSystem\bin\Debug\ProtobufSerializer.pdb
+D:\ProjectPlatform\Networking\NetworkComms.Net-master\NetworkComms.Net-master\DistributedFileSystem\bin\Debug\protobuf-net.pdb
+D:\ProjectPlatform\Networking\NetworkComms.Net-master\NetworkComms.Net-master\DistributedFileSystem\bin\Debug\protobuf-net.xml
+D:\ProjectPlatform\Networking\NetworkComms.Net-master\NetworkComms.Net-master\DistributedFileSystem\bin\Debug\InTheHand.Net.Personal.xml
+D:\ProjectPlatform\Networking\NetworkComms.Net-master\NetworkComms.Net-master\DistributedFileSystem\obj\Debug\DistributedFileSystem.csprojAssemblyReference.cache
+D:\ProjectPlatform\Networking\NetworkComms.Net-master\NetworkComms.Net-master\DistributedFileSystem\obj\Debug\DistributedFileSystem.csproj.CoreCompileInputs.cache
+D:\ProjectPlatform\Networking\NetworkComms.Net-master\NetworkComms.Net-master\DistributedFileSystem\obj\Debug\DistributedFileSystem.csproj.CopyComplete
+D:\ProjectPlatform\Networking\NetworkComms.Net-master\NetworkComms.Net-master\DistributedFileSystem\obj\Debug\DistributedFileSystem.dll
+D:\ProjectPlatform\Networking\NetworkComms.Net-master\NetworkComms.Net-master\DistributedFileSystem\obj\Debug\DistributedFileSystem.pdb

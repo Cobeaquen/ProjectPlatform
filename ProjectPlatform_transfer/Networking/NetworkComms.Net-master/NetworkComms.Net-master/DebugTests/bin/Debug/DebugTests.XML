@@ -1,0 +1,121 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>DebugTests</name>
+    </assembly>
+    <members>
+        <member name="T:DebugTests.BasicSend">
+            <summary>
+            Networking in only 11 lines (not including comments and whitespace of course).
+            Note: This example deliberately includes no validation or exception handling in order to keep it as short as possible (i.e. it's easy to break).
+            </summary>
+        </member>
+        <member name="M:DebugTests.BasicSend.RunExample">
+            <summary>
+            Run example
+            </summary>
+        </member>
+        <member name="M:DebugTests.BluetoothTest.RunExample">
+            <summary>
+            Run example
+            </summary>
+        </member>
+        <member name="T:DebugTests.ClientHammer">
+            <summary>
+            A scrap board class for solving whatever bug is currently causing issues
+            </summary>
+        </member>
+        <member name="T:DebugTests.UnmanagedUDPBroadcast">
+            <summary>
+            A scrap board class for solving whatever bug is currently causing issues
+            </summary>
+        </member>
+        <member name="T:DebugTests.DebugTest">
+            <summary>
+            A scrap board class for solving whatever bug is currently causing issues
+            </summary>
+        </member>
+        <member name="M:DebugTests.DFSTest.RunExample">
+            <summary>
+            The distributed file system (DFS) allows for the high performance distribution of large files
+            within a cluster of peers. This sytem replicates the behaviour the bitTorrent protocol by using 
+            NetworkCommsDotNet. This example demonstrates the DFS in action.
+            </summary>
+        </member>
+        <member name="M:DebugTests.SymEncryptionTest.RunExample">
+            <summary>
+            Run example
+            </summary>
+        </member>
+        <member name="T:DebugTests.ExampleHelper">
+            <summary>
+            Provides implementation shared across examples
+            </summary>
+        </member>
+        <member name="M:DebugTests.ExampleHelper.GetServerDetails(NetworkCommsDotNet.ConnectionInfo@)">
+            <summary>
+            Request user to provide server details and returns the result as a <see cref="T:NetworkCommsDotNet.ConnectionInfo"/> object. Performs the necessary validation and prevents code duplication across examples.
+            </summary>
+            <param name="connectionInfo"></param>
+        </member>
+        <member name="M:DebugTests.LogAnalyser.#ctor(System.String)">
+            <summary>
+            Initialise a new log analyser using the provided logfile
+            </summary>
+            <param name="logfileName"></param>
+        </member>
+        <member name="M:DebugTests.LogAnalyser.ParseLineTime(System.String,System.DateTime@)">
+            <summary>
+            Parses the time at which the current logline occured and returns an associated dateTime
+            </summary>
+            <param name="line"></param>
+            <returns>True if the parse is succesfull</returns>
+        </member>
+        <member name="M:DebugTests.LogAnalyser.LinesWithMatch(System.String[],System.String)">
+            <summary>
+            Write all lines that contain the provided matchString to a new resultFile
+            </summary>
+            <param name="matchString"></param>
+            <param name="resultFile"></param>
+        </member>
+        <member name="M:DebugTests.LogAnalyser.ThreadPoolInfo(System.String)">
+            <summary>
+            Parse the thread pool stats to a new resultFile
+            </summary>
+            <param name="resultFile"></param>
+        </member>
+        <member name="M:DebugTests.LogAnalyser.DataSendReceive(System.Int32,System.String)">
+            <summary>
+            Determines the KB/sec and saves it out versus time
+            </summary>
+            <param name="resultFile"></param>
+        </member>
+        <member name="M:DebugTests.NumConnectionLoadTest.ConnectionHammer(System.Int32)">
+            <summary>
+            Hammers the server with connections.
+            </summary>
+        </member>
+        <member name="F:DebugTests.PeerDiscoveryTest.locker">
+            <summary>
+            Static locker used to ensure we only write information to the console in a clear fashion
+            </summary>
+        </member>
+        <member name="M:DebugTests.PeerDiscoveryTest.PeerDiscovered(NetworkCommsDotNet.Tools.ShortGuid,System.Collections.Generic.Dictionary{NetworkCommsDotNet.Connections.ConnectionType,System.Collections.Generic.List{System.Net.EndPoint}})">
+            <summary>
+            Execute this method when a peer is discovered 
+            </summary>
+            <param name="peerIdentifier">The network identifier of the discovered peer</param>
+            <param name="discoveredPeerEndPoints">The discoverable endpoints found for the provided peer</param>
+        </member>
+        <member name="T:DebugTests.ThreadPoolTest">
+            <summary>
+            Used for testing the issues with writing to fileStreams in a high performance way in MONO
+            </summary>
+        </member>
+        <member name="M:DebugTests.ThreadPoolTest.RunExample">
+            <summary>
+            Run the example
+            </summary>
+        </member>
+    </members>
+</doc>

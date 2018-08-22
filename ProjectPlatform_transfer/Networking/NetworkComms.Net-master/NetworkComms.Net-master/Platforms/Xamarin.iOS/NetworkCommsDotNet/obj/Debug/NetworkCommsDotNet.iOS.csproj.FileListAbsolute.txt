@@ -1,0 +1,8 @@
+D:\ProjectPlatform\Networking\NetworkComms.Net-master\NetworkComms.Net-master\Platforms\Xamarin.iOS\NetworkCommsDotNet\bin\Debug\NetworkCommsDotNet.XML
+D:\ProjectPlatform\Networking\NetworkComms.Net-master\NetworkComms.Net-master\Platforms\Xamarin.iOS\NetworkCommsDotNet\bin\Debug\NetworkCommsDotNet.dll
+D:\ProjectPlatform\Networking\NetworkComms.Net-master\NetworkComms.Net-master\Platforms\Xamarin.iOS\NetworkCommsDotNet\bin\Debug\NetworkCommsDotNet.pdb
+D:\ProjectPlatform\Networking\NetworkComms.Net-master\NetworkComms.Net-master\Platforms\Xamarin.iOS\NetworkCommsDotNet\obj\Debug\optimized\
+D:\ProjectPlatform\Networking\NetworkComms.Net-master\NetworkComms.Net-master\Platforms\Xamarin.iOS\NetworkCommsDotNet\obj\Debug\NetworkCommsDotNet.iOS.csprojAssemblyReference.cache
+D:\ProjectPlatform\Networking\NetworkComms.Net-master\NetworkComms.Net-master\Platforms\Xamarin.iOS\NetworkCommsDotNet\obj\Debug\NetworkCommsDotNet.iOS.csproj.CoreCompileInputs.cache
+D:\ProjectPlatform\Networking\NetworkComms.Net-master\NetworkComms.Net-master\Platforms\Xamarin.iOS\NetworkCommsDotNet\obj\Debug\NetworkCommsDotNet.dll
+D:\ProjectPlatform\Networking\NetworkComms.Net-master\NetworkComms.Net-master\Platforms\Xamarin.iOS\NetworkCommsDotNet\obj\Debug\NetworkCommsDotNet.pdb

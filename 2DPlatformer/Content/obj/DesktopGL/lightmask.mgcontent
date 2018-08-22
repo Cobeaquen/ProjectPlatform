@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <SourceFile>D:/ProjectPlatform/2DPlatformer/Content/lightmask.png</SourceFile>
-  <SourceTime>2018-08-03T03:45:59.8893101+02:00</SourceTime>
+  <SourceTime>2018-08-03T23:51:26+02:00</SourceTime>
   <DestFile>D:/ProjectPlatform/2DPlatformer/Content/bin/DesktopGL/lightmask.xnb</DestFile>
-  <DestTime>2018-08-03T04:11:44.2611197+02:00</DestTime>
+  <DestTime>2018-08-13T18:48:59.344065+02:00</DestTime>
   <Importer>TextureImporter</Importer>
   <ImporterTime>2017-03-01T16:05:36+01:00</ImporterTime>
   <Processor>TextureProcessor</Processor>

@@ -1,8 +1,8 @@
 {
 "multiplayer":true,
 "resolutionWidth":1500,
-"resolutionHeight":1200,
+"resolutionHeight":1000,
 "isBorderless":false,
-"vsync":false,
+"vsync":true,
 "EditorMode":false
 }

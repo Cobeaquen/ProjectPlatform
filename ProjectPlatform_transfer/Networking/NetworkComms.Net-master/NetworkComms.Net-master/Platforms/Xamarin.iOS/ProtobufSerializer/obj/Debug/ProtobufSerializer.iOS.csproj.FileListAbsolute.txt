@@ -1,0 +1,14 @@
+D:\ProjectPlatform\Networking\NetworkComms.Net-master\NetworkComms.Net-master\Platforms\Xamarin.iOS\ProtobufSerializer\bin\Debug\ProtobufSerializer.dll
+D:\ProjectPlatform\Networking\NetworkComms.Net-master\NetworkComms.Net-master\Platforms\Xamarin.iOS\ProtobufSerializer\bin\Debug\ProtobufSerializer.pdb
+D:\ProjectPlatform\Networking\NetworkComms.Net-master\NetworkComms.Net-master\Platforms\Xamarin.iOS\ProtobufSerializer\bin\Debug\NetworkCommsDotNet.dll
+D:\ProjectPlatform\Networking\NetworkComms.Net-master\NetworkComms.Net-master\Platforms\Xamarin.iOS\ProtobufSerializer\bin\Debug\protobuf-net.dll
+D:\ProjectPlatform\Networking\NetworkComms.Net-master\NetworkComms.Net-master\Platforms\Xamarin.iOS\ProtobufSerializer\bin\Debug\NetworkCommsDotNet.pdb
+D:\ProjectPlatform\Networking\NetworkComms.Net-master\NetworkComms.Net-master\Platforms\Xamarin.iOS\ProtobufSerializer\bin\Debug\NetworkCommsDotNet.xml
+D:\ProjectPlatform\Networking\NetworkComms.Net-master\NetworkComms.Net-master\Platforms\Xamarin.iOS\ProtobufSerializer\bin\Debug\protobuf-net.pdb
+D:\ProjectPlatform\Networking\NetworkComms.Net-master\NetworkComms.Net-master\Platforms\Xamarin.iOS\ProtobufSerializer\bin\Debug\protobuf-net.xml
+D:\ProjectPlatform\Networking\NetworkComms.Net-master\NetworkComms.Net-master\Platforms\Xamarin.iOS\ProtobufSerializer\obj\Debug\optimized\
+D:\ProjectPlatform\Networking\NetworkComms.Net-master\NetworkComms.Net-master\Platforms\Xamarin.iOS\ProtobufSerializer\obj\Debug\ProtobufSerializer.iOS.csprojAssemblyReference.cache
+D:\ProjectPlatform\Networking\NetworkComms.Net-master\NetworkComms.Net-master\Platforms\Xamarin.iOS\ProtobufSerializer\obj\Debug\ProtobufSerializer.iOS.csproj.CoreCompileInputs.cache
+D:\ProjectPlatform\Networking\NetworkComms.Net-master\NetworkComms.Net-master\Platforms\Xamarin.iOS\ProtobufSerializer\obj\Debug\ProtobufSerializer.iOS.csproj.CopyComplete
+D:\ProjectPlatform\Networking\NetworkComms.Net-master\NetworkComms.Net-master\Platforms\Xamarin.iOS\ProtobufSerializer\obj\Debug\ProtobufSerializer.dll
+D:\ProjectPlatform\Networking\NetworkComms.Net-master\NetworkComms.Net-master\Platforms\Xamarin.iOS\ProtobufSerializer\obj\Debug\ProtobufSerializer.pdb

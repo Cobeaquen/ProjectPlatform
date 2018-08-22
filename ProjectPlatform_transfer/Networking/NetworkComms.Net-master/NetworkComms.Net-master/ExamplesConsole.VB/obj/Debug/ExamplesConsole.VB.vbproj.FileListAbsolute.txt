@@ -1,0 +1,16 @@
+D:\ProjectPlatform\Networking\NetworkComms.Net-master\NetworkComms.Net-master\ExamplesConsole.VB\bin\Debug\ExamplesConsole.VB.exe
+D:\ProjectPlatform\Networking\NetworkComms.Net-master\NetworkComms.Net-master\ExamplesConsole.VB\bin\Debug\ExamplesConsole.VB.pdb
+D:\ProjectPlatform\Networking\NetworkComms.Net-master\NetworkComms.Net-master\ExamplesConsole.VB\bin\Debug\NetworkCommsDotNet.dll
+D:\ProjectPlatform\Networking\NetworkComms.Net-master\NetworkComms.Net-master\ExamplesConsole.VB\bin\Debug\protobuf-net.dll
+D:\ProjectPlatform\Networking\NetworkComms.Net-master\NetworkComms.Net-master\ExamplesConsole.VB\bin\Debug\InTheHand.Net.Personal.dll
+D:\ProjectPlatform\Networking\NetworkComms.Net-master\NetworkComms.Net-master\ExamplesConsole.VB\bin\Debug\NetworkCommsDotNet.pdb
+D:\ProjectPlatform\Networking\NetworkComms.Net-master\NetworkComms.Net-master\ExamplesConsole.VB\bin\Debug\protobuf-net.pdb
+D:\ProjectPlatform\Networking\NetworkComms.Net-master\NetworkComms.Net-master\ExamplesConsole.VB\bin\Debug\protobuf-net.xml
+D:\ProjectPlatform\Networking\NetworkComms.Net-master\NetworkComms.Net-master\ExamplesConsole.VB\bin\Debug\InTheHand.Net.Personal.xml
+D:\ProjectPlatform\Networking\NetworkComms.Net-master\NetworkComms.Net-master\ExamplesConsole.VB\obj\Debug\ExamplesConsole.VB.vbprojAssemblyReference.cache
+D:\ProjectPlatform\Networking\NetworkComms.Net-master\NetworkComms.Net-master\ExamplesConsole.VB\obj\Debug\Examples.ExamplesConsole.VB.Resources.resources
+D:\ProjectPlatform\Networking\NetworkComms.Net-master\NetworkComms.Net-master\ExamplesConsole.VB\obj\Debug\ExamplesConsole.VB.vbproj.GenerateResource.cache
+D:\ProjectPlatform\Networking\NetworkComms.Net-master\NetworkComms.Net-master\ExamplesConsole.VB\obj\Debug\ExamplesConsole.VB.vbproj.CoreCompileInputs.cache
+D:\ProjectPlatform\Networking\NetworkComms.Net-master\NetworkComms.Net-master\ExamplesConsole.VB\obj\Debug\ExamplesConsole.VB.vbproj.CopyComplete
+D:\ProjectPlatform\Networking\NetworkComms.Net-master\NetworkComms.Net-master\ExamplesConsole.VB\obj\Debug\ExamplesConsole.VB.exe
+D:\ProjectPlatform\Networking\NetworkComms.Net-master\NetworkComms.Net-master\ExamplesConsole.VB\obj\Debug\ExamplesConsole.VB.pdb
